@@ -1,0 +1,8 @@
+<nz-header class='navbar'>
+  <div class="logo">{{blog}}</div>
+  <ul class="route">
+    <li *ngFor="let data of routes">
+      <a routerLink="{{data.href}}" routerLinkActive="active">{{data.name}}</a>
+    </li>
+  </ul>
+</nz-header>
