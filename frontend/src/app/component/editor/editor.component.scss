@@ -1,0 +1,175 @@
+@import '../../../styles/function.scss';
+
+.submit {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  z-index: 100;
+  right: 25px;
+  bottom: 50px;
+  background-color: #1088e9;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  font-size: 1.5em;
+  transition: all 0.3s ease;
+
+  &:hover > i {
+    transform: rotate(45deg);
+  }
+
+  ul {
+    position: absolute;
+    z-index: 50;
+    // (width: 40 + margin: 10) * n
+    top: -100px;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0) translate(0px, 50px);
+    transition: all 0.3s ease;
+    transform-origin: bottom center;
+
+    li {
+      background-color: #1088e9;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+  }
+
+  &:hover > ul {
+    transform: scale(1) translate(0px, 0px);
+  }
+
+  ul:hover {
+    transform: scale(1) translate(0px, 0px);
+  }
+}
+
+.metadata {
+  @include container;
+
+  background-color: #ffffff;
+  padding: 0.5em 0.5em;
+  border-radius: 2px;
+
+  i {
+    color: #b2b2b2;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    input {
+      margin-left: 0.5em;
+      border-radius: 2px;
+      padding: 0.25em 0.5em;
+      flex: 1;
+      border: 1px solid #e8e8e8;
+    }
+  }
+
+  .type {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      @include ul;
+
+      justify-content: space-between;
+    }
+
+    input {
+      margin-top: 0.5em;
+      border-radius: 2px;
+      padding: 0.25em 0.5em;
+      flex: 1;
+      border: 1px solid #e8e8e8;
+    }
+  }
+
+  div + div {
+    margin-top: 0.5em;
+  }
+}
+
+.markdown-editor {
+  @include container;
+
+  font-size: 1.15em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 2px;
+  padding-bottom: 8px;
+  // font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei,
+  //   Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+
+  .editor {
+    width: 100%;
+    border-bottom: 1px solid #b2b2b2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+      @include ul;
+
+      font-size: 1.05em;
+      color: #b2b2b2;
+      padding: 0em 1em 0.25em 1em;
+
+      li:hover {
+        color: #009a61;
+      }
+
+      li:nth-of-type(even) + li {
+        border-left: 1px solid #b2b2b2;
+        padding-left: 1em;
+      }
+
+      li + li {
+        margin-left: 1em;
+      }
+    }
+  }
+
+  textarea {
+    border: 0px;
+    border-right: 1px solid #b2b2b2;
+    width: 50%;
+    resize: none;
+    padding: 10px 10px;
+    transition: all 0.5s;
+  }
+
+  .markdown {
+    width: 50%;
+  }
+
+  hr {
+    margin: 0px 0px;
+    width: 100%;
+    border-top: 1px solid #b2b2b2;
+  }
+
+  hr::after {
+    display: block;
+    width: 20px;
+    height: 1px;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 4px;
+    background-color: #b2b2b2;
+  }
+}

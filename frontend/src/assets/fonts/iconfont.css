@@ -1,0 +1,155 @@
+@font-face {
+  font-family: 'linksystem';
+  src: url('linksystem.ttf?wthg99') format('truetype'),
+    url('linksystem.woff?wthg99') format('woff'),
+    url('linksystem.svg?wthg99#linksystem') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='linksystem-'],
+[class*=' linksystem-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'linksystem' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.linksystem-app:before {
+  content: '\e928';
+}
+.linksystem-draft:before {
+  content: '\e926';
+}
+.linksystem-save:before {
+  content: '\e927';
+}
+.linksystem-image:before {
+  content: '\e924';
+}
+.linksystem-lines:before {
+  content: '\e925';
+}
+.linksystem-color:before {
+  content: '\e920';
+}
+.linksystem-data:before {
+  content: '\e921';
+}
+.linksystem-process:before {
+  content: '\e922';
+}
+.linksystem-warn:before {
+  content: '\e923';
+}
+.linksystem-fork:before {
+  content: '\e918';
+}
+.linksystem-star:before {
+  content: '\e919';
+}
+.linksystem-mail:before {
+  content: '\e91d';
+}
+.linksystem-message:before {
+  content: '\e91e';
+}
+.linksystem-tip:before {
+  content: '\e91f';
+}
+.linksystem-search:before {
+  content: '\e91c';
+}
+.linksystem-time:before {
+  content: '\e91b';
+}
+.linksystem-qr-code:before {
+  content: '\e911';
+}
+.linksystem-refrush:before {
+  content: '\e912';
+}
+.linksystem-catalog:before {
+  content: '\e913';
+  color: #555;
+}
+.linksystem-back:before {
+  content: '\e914';
+}
+.linksystem-more:before {
+  content: '\e915';
+}
+.linksystem-right:before {
+  content: '\e916';
+}
+.linksystem-terminal:before {
+  content: '\e917';
+}
+.linksystem-add:before {
+  content: '\e91a';
+}
+.linksystem-heart:before {
+  content: '\e90e';
+}
+.linksystem-notes:before {
+  content: '\e90f';
+}
+.linksystem-enjoy:before {
+  content: '\e910';
+}
+.linksystem-question:before {
+  content: '\e90d';
+}
+.linksystem-link:before {
+  content: '\e90c';
+}
+.linksystem-type:before {
+  content: '\e90b';
+}
+.linksystem-github:before {
+  content: '\e900';
+}
+.linksystem-qq:before {
+  content: '\e901';
+  color: #30a5dd;
+}
+.linksystem-weibo:before {
+  content: '\e902';
+  color: #ea5d5c;
+}
+.linksystem-wechat:before {
+  content: '\e903';
+  color: #50b674;
+}
+.linksystem-columns:before {
+  content: '\e904';
+}
+.linksystem-bold:before {
+  content: '\e905';
+}
+.linksystem-bookmark:before {
+  content: '\e906';
+}
+.linksystem-code:before {
+  content: '\e907';
+}
+.linksystem-collection:before {
+  content: '\e908';
+}
+.linksystem-italic:before {
+  content: '\e909';
+}
+.linksystem-title:before {
+  content: '\e90a';
+}
+.linksystem-location:before {
+  content: '\e948';
+}

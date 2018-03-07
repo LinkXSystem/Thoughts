@@ -1,3 +1,73 @@
-<p>
-  editor works!
-</p>
+<div>
+  <div class="submit">
+    <ul>
+      <li>
+        <i class="linksystem-draft" aria-hidden="true"></i>
+      </li>
+      <li>
+        <i class="linksystem-save" aria-hidden="true"></i>
+      </li>
+    </ul>
+    <i class="linksystem-app" aria-hidden="true"></i>
+  </div>
+  <div class="metadata">
+    <div class="title">
+      <i class="anticon anticon-edit" aria-hidden="true"></i>
+      <input type="text" placeholder="标题" />
+    </div>
+    <div class="type">
+      <ul>
+        <li>
+          <i class="anticon anticon-appstore-o" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i class="anticon anticon-ellipsis" aria-hidden="true"></i>
+        </li>
+      </ul>
+      <input type="text" placeholder="类型" />
+    </div>
+  </div>
+  <div class="markdown-editor">
+    <div class="editor">
+      <ul>
+        <li>
+          <i class="linksystem-bold" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i class="linksystem-italic" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i class="linksystem-link" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i class="linksystem-code" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i class="linksystem-bookmark" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i class="linksystem-image" aria-hidden="true" (click)="showmodal()"></i>
+          <nz-modal [nzVisible]="isVisible" [nzTitle]="'图片存储'" [nzContent]="modalContent" (nzOnCancel)="showmodal()">
+            <ng-template #modalContent>
+              <nz-upload nzType="drag" [nzMultiple]="true" [nzLimit]="2" nzAction="https://jsonplaceholder.typicode.com/posts/" (nzChange)="handleChange($event)">
+                <p class="ant-upload-drag-icon">
+                  <i class="anticon anticon-inbox"></i>
+                </p>
+                <p class="ant-upload-text">单击或拖动文件到该区域上载</p>
+                <p class="ant-upload-hint">支持单个或批量上载。严禁上传非法数据或其他无关文件</p>
+              </nz-upload>
+            </ng-template>
+          </nz-modal>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <i class="linksystem-columns" aria-hidden="true" (click)="reverse()"></i>
+        </li>
+      </ul>
+    </div>
+    <textarea name="mark" id="mark" cols="30" rows="30" [ngModel]="data" (ngModelChange)="markdown($event)" [@textarea]="statu"></textarea>
+    <div class="markdown" [innerHTML]="html" [@markdown]="statu"></div>
+    <hr />
+  </div>
+</div>

@@ -15,11 +15,19 @@ import { EditorComponent } from './component/editor/editor.component';
 
 import { HomeComponent } from './page/home/home.component';
 import { ColumnComponent } from './page/column/column.component';
+import { WriterComponent } from './page/writer/writer.component';
+import { ArticleComponent } from './page/article/article.component';
+import { UserComponent } from './page/user/user.component';
+import { UserDetailComponent } from './component/user-detail/user-detail.component';
+import { GithubComponent } from './component/github/github.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'blog', pathMatch: 'full' },
   { path: 'blog', component: HomeComponent },
-  { path: 'column', component: ColumnComponent }
+  { path: 'column', component: ColumnComponent },
+  { path: 'writer', component: WriterComponent },
+  { path: 'article', component: ArticleComponent },
+  { path: 'user', component: UserComponent }
 ];
 
 @NgModule({
@@ -31,7 +39,12 @@ const routes: Routes = [
     ListComponent,
     EditorComponent,
     HomeComponent,
-    ColumnComponent
+    ColumnComponent,
+    WriterComponent,
+    ArticleComponent,
+    UserComponent,
+    UserDetailComponent,
+    GithubComponent
   ],
   imports: [
     BrowserModule,
