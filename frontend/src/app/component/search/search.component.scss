@@ -1,0 +1,25 @@
+@import '../../../styles/function.scss';
+
+.search {
+  @include container;
+
+  margin-bottom: 0.5em;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    padding: 8px;
+
+    i {
+      font-size: 1.15em;
+    }
+
+    input {
+      font-size: 1.15em;
+      flex: 1;
+      border: 0px solid #b2b2b2;
+      padding: 0px 4px;
+    }
+  }
+}

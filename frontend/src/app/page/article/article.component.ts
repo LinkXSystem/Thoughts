@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+
+import 'rxjs/add/operator/switchMap';
+import { AppState, getArticles } from '../../app.reducer';
+import { Store } from 'redux';
+import { AppStore } from '../../app.store';
 
 @Component({
   selector: 'app-article',
@@ -6,10 +12,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
+  data: any;
 
-  constructor() { }
+  constructor(
+    @Inject(AppStore) private store: Store<AppState>,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.updateState(params['indentify']);
+    });
   }
 
+  updateState(indentify): void {
+    const state = this.store.getState();
+    const articles = getArticles(state);
+    this.data = articles
+      .filter(element => {
+        return element.identify === indentify;
+      })
+      .pop();
+  }
 }

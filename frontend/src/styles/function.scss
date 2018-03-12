@@ -2,7 +2,7 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   padding: 4px 4px;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 @mixin ul {
@@ -12,4 +12,66 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+@mixin icon($background-color: #49a9ee, $color: #000000) {
+  text-align: center;
+  font-style: normal;
+  font-size: 0.75em;
+  padding: 0em 0.5em;
+  border-radius: 2px;
+  color: $color;
+  background-color: $background-color;
+}
+
+@mixin line-clamp($line-height: 1em, $height: 3em) {
+  p {
+    position: relative;
+    line-height: $line-height;
+    height: $height;
+    overflow: hidden;
+
+    &::after {
+      content: '...';
+      font-weight: bold;
+      position: absolute;
+      bottom: 0em;
+      right: 0em;
+      padding: 0 20px 1px 45px;
+
+      /* 为了展示效果更好 */
+      background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(rgba(255, 255, 255, 0)),
+        to(white),
+        color-stop(50%, white)
+      );
+      background: -moz-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        white 50%,
+        white
+      );
+      background: -o-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        white 50%,
+        white
+      );
+      background: -ms-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        white 50%,
+        white
+      );
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        white 50%,
+        white
+      );
+    }
+  }
 }

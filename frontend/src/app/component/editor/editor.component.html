@@ -67,7 +67,7 @@
       </ul>
     </div>
     <textarea name="mark" id="mark" cols="30" rows="30" [ngModel]="data" (ngModelChange)="markdown($event)" [@textarea]="statu"></textarea>
-    <div class="markdown" [innerHTML]="html" [@markdown]="statu"></div>
+    <div class="markdown" [innerHTML]="(html | markdown)" [@markdown]="statu"></div>
     <hr />
   </div>
 </div>

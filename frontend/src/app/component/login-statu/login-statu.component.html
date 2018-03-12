@@ -1,0 +1,12 @@
+<div class="login-statu">
+  <div class="point"></div>
+  <div class="bar" (click)="showmodal()"></div>
+  <nz-modal [nzVisible]="isVisible" [nzTitle]="'系统登陆'" [nzWidth]="300" [nzContent]="modalContent" (nzOnCancel)="showmodal()">
+    <ng-template #modalContent>
+      <form>
+        <input type="email" placeholder="邮箱" />
+        <input type="password" placeholder="密码" />
+      </form>
+    </ng-template>
+  </nz-modal>
+</div>

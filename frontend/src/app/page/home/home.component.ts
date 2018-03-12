@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { ItemPropType } from '../../component/list/item-proptypes';
+import { ArticleItemCompoent } from '../../component/list/article-item.component';
+import { Store } from 'redux';
+import { AppState, getArticles } from '../../app.reducer';
+import { AppStore } from '../../app.store';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +12,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  articles: ItemPropType[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(@Inject(AppStore) private store: Store<AppState>) {
+    store.subscribe(() => this.updateState());
+    this.updateState();
   }
 
+  ngOnInit() {}
+
+  updateState(): void {
+    const state = this.store.getState();
+    const articles = getArticles(state);
+    this.articles = articles.map(element => {
+      return new ItemPropType(ArticleItemCompoent, element);
+    });
+  }
 }

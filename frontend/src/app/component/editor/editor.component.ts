@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as markmd from 'marked';
 import {
   trigger,
   state,
@@ -61,8 +60,7 @@ export class EditorComponent implements OnInit {
   ngOnInit() {}
 
   markdown(content): void {
-    const transfer = markmd.setOptions({});
-    this.html = transfer.parse(content);
+    this.html = content;
   }
 
   reverse() {

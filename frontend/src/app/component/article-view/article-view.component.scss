@@ -1,0 +1,27 @@
+@import '../../../styles/function.scss';
+
+header {
+  @include container;
+  margin-bottom: 0.5em;
+
+  h2 {
+    color: #49a9ee;
+  }
+
+  ul {
+    @include ul;
+    margin-top: 0.5em;
+
+    .icon {
+      @include icon($background-color: #b2b2b2, $color: #ffffff);
+    }
+
+    li + li {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+article {
+  @include container;
+}

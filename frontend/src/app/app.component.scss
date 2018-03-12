@@ -5,6 +5,7 @@
 :host ::ng-deep .ant-back-top {
   bottom: 50px;
 }
+
 :host ::ng-deep .ant-back-top-inner {
   height: 40px;
   width: 40px;
@@ -15,6 +16,13 @@
   text-align: center;
   font-size: 20px;
 }
+
 :host ::ng-deep strong {
   color: #1088e9;
+}
+
+@media screen and (max-width: 479px) {
+  .ant-layout-content {
+    padding: 0px 10px !important;
+  }
 }
