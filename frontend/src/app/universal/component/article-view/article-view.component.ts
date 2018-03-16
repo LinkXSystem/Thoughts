@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Article } from '../../redux/article/article.model';
+import { Article } from '../../../redux/article/article.model';
 
 @Component({
   selector: 'app-article-view',

@@ -7,62 +7,28 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
-import { ListComponent } from './component/list/list.component';
-import { ArticleItemCompoent } from './component/list/article-item.component';
-import { ColumnItemCompoent } from './component/list/column-item.component';
-import { EditorComponent } from './component/editor/editor.component';
-import { UserDetailComponent } from './component/user-detail/user-detail.component';
 
-import { ListDirective } from './component/list/list.directive';
-
-import { MarkdownPipe } from './pipe/markdown.pipe';
+// import { EditorComponent } from './component/editor/editor.component';
 
 import { HomeComponent } from './page/home/home.component';
 import { ColumnComponent } from './page/column/column.component';
-import { WriterComponent } from './page/writer/writer.component';
 import { ArticleComponent } from './page/article/article.component';
 import { UserComponent } from './page/user/user.component';
-import { GithubComponent } from './component/github/github.component';
-import { SettingComponent } from './page/setting/setting.component';
 
 import { AppStore, AppStoreProviders } from './app.store';
-import { ArticleViewComponent } from './component/article-view/article-view.component';
-import { LoginStatuComponent } from './component/login-statu/login-statu.component';
-import { CertificateComponent } from './component/certificate/certificate.component';
-import { SearchComponent } from './component/search/search.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'blog', pathMatch: 'full' },
-  { path: 'blog', component: HomeComponent },
-  { path: 'column', component: ColumnComponent },
-  { path: 'article/:indentify', component: ArticleComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'writer', component: WriterComponent }
-];
+import { SystemRoutingModule } from './routing.module';
+import { UnderfinedComponent } from './page/underfined/underfined.component';
+import { UniversalModule } from './universal/universal.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    ListComponent,
-    ArticleItemCompoent,
-    ColumnItemCompoent,
-    ListDirective,
-    EditorComponent,
-    MarkdownPipe,
     HomeComponent,
     ColumnComponent,
-    WriterComponent,
     ArticleComponent,
     UserComponent,
-    UserDetailComponent,
-    GithubComponent,
-    SettingComponent,
-    ArticleViewComponent,
-    LoginStatuComponent,
-    CertificateComponent,
-    SearchComponent
+    UnderfinedComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +36,9 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
-    RouterModule.forRoot(routes, { enableTracing: true })
+    UniversalModule,
+    SystemRoutingModule
   ],
-  entryComponents: [ArticleItemCompoent, ColumnItemCompoent],
   providers: [AppStoreProviders],
   bootstrap: [AppComponent]
 })

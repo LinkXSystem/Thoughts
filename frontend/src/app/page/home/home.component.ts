@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ItemPropType } from '../../component/list/item-proptypes';
-import { ArticleItemCompoent } from '../../component/list/article-item.component';
+import { ItemPropType } from '../../universal/component/list/item-proptypes';
+import { ArticleItemCompoent } from '../../universal/component/list/article-item.component';
 import { Store } from 'redux';
 import { AppState, getArticles } from '../../app.reducer';
 import { AppStore } from '../../app.store';

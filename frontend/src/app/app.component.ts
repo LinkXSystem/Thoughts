@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Router } from './component/navbar/proptypes';
-import { NavbarItemComponent } from './component/navbar/navbar-item.component';
+import { Router } from './universal/component/navbar/proptypes';
 
 @Component({
   selector: 'app-root',

@@ -1,4 +1,4 @@
-@import '../../../styles/function.scss';
+@import '../../../../styles/function.scss';
 
 .search {
   @include container;
@@ -20,6 +20,7 @@
       flex: 1;
       border: 0px solid #b2b2b2;
       padding: 0px 4px;
+      width: calc(100% - 1.15em);
     }
   }
 }

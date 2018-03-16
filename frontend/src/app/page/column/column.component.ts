@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemPropType } from '../../component/list/item-proptypes';
-import { ColumnItemCompoent } from '../../component/list/column-item.component';
+import { ItemPropType } from '../../universal/component/list/item-proptypes';
+import { ColumnItemCompoent } from '../../universal/component/list/column-item.component';
 
 @Component({
   selector: 'app-column',
