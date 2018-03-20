@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'linksystem';
-  src: url('linksystem.ttf?wthg99') format('truetype'),
-    url('linksystem.woff?wthg99') format('woff'),
-    url('linksystem.svg?wthg99#linksystem') format('svg');
+  src: url('linksystem.ttf?dwe9i7') format('truetype'),
+    url('linksystem.woff?dwe9i7') format('woff'),
+    url('linksystem.svg?dwe9i7#linksystem') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,6 +23,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.linksystem-briefcase:before {
+  content: '\e929';
+}
+.linksystem-tags:before {
+  content: '\e92a';
+}
+.linksystem-user:before {
+  content: '\e92b';
+  color: #525252;
+}
 .linksystem-app:before {
   content: '\e928';
 }

@@ -1,0 +1,10 @@
+<nz-tabset class="favourite">
+  <nz-tab *ngFor="let tab of tabs">
+    <ng-template #nzTabHeading style="background-color: rgba(255, 255, 255, 1);">
+      {{tab.name}}
+    </ng-template>
+    <span>
+      {{tab.content}}
+    </span>
+  </nz-tab>
+</nz-tabset>

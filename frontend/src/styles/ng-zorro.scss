@@ -1,0 +1,7 @@
+@import './function.scss';
+
+.ant-tabs-nav-container {
+  @include container;
+
+  padding: 0.5em 0.5em 0em 0.5em;
+}

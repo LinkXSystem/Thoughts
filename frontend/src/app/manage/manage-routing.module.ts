@@ -11,18 +11,23 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: SettingComponent
+        redirectTo: 'setting',
+        pathMatch: 'full',
+      },
+      {
+        path: 'setting',
+        component: SettingComponent,
       },
       {
         path: 'writing',
-        component: WriterComponent
-      }
-    ]
-  }
+        component: WriterComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class ManageRoutingModule {}

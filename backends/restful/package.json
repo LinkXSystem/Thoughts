@@ -1,0 +1,17 @@
+{
+  "name": "restful",
+  "version": "1.0.0",
+  "description": "thoughts 的API服务器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "linksystem",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
