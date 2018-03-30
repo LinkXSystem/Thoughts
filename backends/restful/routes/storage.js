@@ -8,19 +8,59 @@ const mongo = require('../modules/mongo');
 /**
  * @description 存储文章
  */
-router.get('/article', (req, res) => {});
+router.post('/article', async (req, res, next) => {
+  try {
+    const cache = Object.assign({}, req.body);
+    const data = await mongo.Article.create(cache);
+    res.json({
+      state: 200,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 
 /**
  * @description 存储专栏
  */
-router.get('/column', (req, res) => {});
+router.post('/column', async (req, res, next) => {
+  try {
+    const cache = Object.assign({}, req.body);
+    const data = await mongo.Article.create(cache);
+    res.json({
+      state: 200,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 
 /**
  * @description 存储注脚
  */
-router.get('/footnote', (req, res) => {});
+router.post('/footnote', async (req, res, next) => {
+  try {
+    const cache = Object.assign({}, req.body);
+    const data = await mongo.Article.create(cache);
+    res.json({
+      state: 200,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 
 /**
  * @description 存储公告
  */
-router.get('/notice', (req, res) => {});
+router.post('/notice', async (req, res, next) => {
+  try {
+    const cache = Object.assign({}, req.body);
+    const data = await mongo.Article.create(cache);
+    res.json({
+      state: 200,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
