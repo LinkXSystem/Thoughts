@@ -1,11 +1,28 @@
 <div class="login-statu">
   <div class="point"></div>
   <div class="bar" (click)="showmodal()"></div>
-  <nz-modal [nzVisible]="isVisible" [nzTitle]="'系统登陆'" [nzWidth]="300" [nzContent]="modalContent" (nzOnCancel)="showmodal()">
+  <nz-modal class="modal" [nzVisible]="isVisible" [nzTitle]="'系统登陆'" [nzWidth]="300" [nzContent]="modalContent" (nzOnCancel)="showmodal()">
     <ng-template #modalContent>
       <form>
-        <input type="email" placeholder="邮箱" />
-        <input type="password" placeholder="密码" />
+        <input type="email" [(ngModel)]="email" name="email" required placeholder="邮箱" />
+        <input type="password" [(ngModel)]="password" name="password" required placeholder="密码" />
+        <button type="button" (click)="backflow()">登录</button>
+        <div class="methods">
+          <div>
+            <span>登录方式</span>
+          </div>
+          <ul>
+            <li>
+              <i class="linksystem-github" aria-hidden="true"></i>
+            </li>
+            <li>
+              <i class="linksystem-wechat" aria-hidden="true"></i>
+            </li>
+            <li>
+              <i class="linksystem-weibo" aria-hidden="true"></i>
+            </li>
+          </ul>
+        </div>
       </form>
     </ng-template>
   </nz-modal>

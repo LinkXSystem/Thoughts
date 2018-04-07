@@ -3,14 +3,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
-  author: String,
+  identify: String,
+  column: String,
   title: String,
   context: String,
   date: Date,
-  icons: [String]
+  icons: [String],
 });
 
-ArticleSchema.getArticles = function(name, number) {
+ArticleSchema.statics.getArticles = function(name, number) {
   return this.find({ name: new RegExp(name, 'i') }).limit(number);
 };
 

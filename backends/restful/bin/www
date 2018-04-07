@@ -26,11 +26,15 @@ const log = log4js.getLogger();
  * 注意使用PM2模块进行管理
  */
 const app = require('../app');
-app.set('port', 2017);
+
+const config = require('../config/system.json');
+
+app.set('port', config.env.port);
+
 const server = app.listen(app.get('port'), () => {
   log.info(
     `The server of stream listening on port ${server.address().port} with pid ${
       process.pid
-    }`
+    }`,
   );
 });

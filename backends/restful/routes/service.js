@@ -5,13 +5,32 @@ const utils = require('../modules/utils/error');
 
 const mongo = require('../modules/mongo');
 
+router.get('/resume', async (req, res, next) => {
+  try {
+    const { User } = mongo.entity;
+    const data = await User.findOne(
+      {},
+      { _id: false, __v: false, register: false, password: false },
+    );
+    return res.json({
+      statu: 'success',
+      data: data,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 /**
  * @description 获取文章
  */
 router.get('/article', async (req, res, next) => {
   try {
     const term = Object.assign({}, req.body);
-    const data = await mongo.Article.find(term, { _id: false, __v: false });
+    const data = await mongo.entity.Article.find(term, {
+      _id: false,
+      __v: false,
+    });
     return res.json({
       code: 200,
       data: {
@@ -76,3 +95,5 @@ router.get('/notice', async (req, res, next) => {
     next(error);
   }
 });
+
+module.exports = router;

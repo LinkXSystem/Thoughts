@@ -6,7 +6,7 @@ import { ItemComponent } from './item-interface.component';
     <div class="item">
       <div>
         <h2>
-          <a href="{{data.url}}">{{data.title}}</a>
+          <a href="{{data.href}}">{{data.title}}</a>
         </h2>
         <ul>
           <li class="icon">{{data.type}}</li>

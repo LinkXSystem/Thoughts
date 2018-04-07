@@ -3,7 +3,7 @@
     <app-list [list]="articles"></app-list>
   </div>
   <div nz-col [nzSpan]="6">
-    <app-login-statu></app-login-statu>
+    <app-login-statu (login)="login($event)"></app-login-statu>
     <app-search></app-search>
     <app-certificate></app-certificate>
   </div>

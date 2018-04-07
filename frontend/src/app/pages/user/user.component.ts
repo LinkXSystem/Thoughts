@@ -7,7 +7,7 @@ import { User } from '../../redux/user/user.model';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
 export class UserComponent {
   user: User;
@@ -20,5 +20,8 @@ export class UserComponent {
   updateState(): void {
     const state = this.store.getState();
     this.user = getUser(state);
+    console.log('====================================');
+    console.log(this.user);
+    console.log('====================================');
   }
 }

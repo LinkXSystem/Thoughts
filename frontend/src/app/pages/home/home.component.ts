@@ -5,11 +5,12 @@ import { Store } from 'redux';
 import { AppState, getArticles } from '../../app.reducer';
 import { AppStore } from '../../app.store';
 import { element } from 'protractor';
+import { Message } from '../../common/message';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   articles: ItemPropType[];
@@ -27,5 +28,9 @@ export class HomeComponent implements OnInit {
     this.articles = articles.map(element => {
       return new ItemPropType(ArticleItemCompoent, element);
     });
+  }
+
+  login(data: Message) {
+    console.log(data);
   }
 }

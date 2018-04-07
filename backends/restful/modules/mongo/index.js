@@ -9,13 +9,16 @@ const user = require('./schemas/user');
 const Article = mongoose.model('article', article);
 const Column = mongoose.model('column', column);
 const Footnote = mongoose.model('footnote', footnote);
-const notice = mongoose.model('notice', notice);
+const Notice = mongoose.model('notice', notice);
 const User = mongoose.model('user', user);
 
 module.exports = {
-  Article,
-  Column,
-  Footnote,
-  Notice,
-  User,
+  control: mongoose,
+  entity: {
+    Article,
+    Column,
+    Footnote,
+    Notice,
+    User,
+  },
 };

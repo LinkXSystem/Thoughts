@@ -17,8 +17,8 @@ const UserSchema = new Schema({
   fingerprint: String,
 });
 
-// UserSchema.statics.findUserByOption = function(option) {
-//   return this.find({ email: email });
-// };
+UserSchema.statics.findUser = function(option) {
+  return this.find({ email: email });
+};
 
 module.exports = UserSchema;

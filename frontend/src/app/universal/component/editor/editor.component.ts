@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   trigger,
   state,
   style,
   transition,
-  animate
+  animate,
 } from '@angular/animations';
 
 @Component({
@@ -16,43 +16,43 @@ import {
       state(
         'active',
         style({
-          width: '50%'
-        })
+          width: '50%',
+        }),
       ),
       state(
         'hidden',
         style({
-          width: 'calc(100% - 1px)'
-        })
+          width: 'calc(100% - 1px)',
+        }),
       ),
       transition('active => hidden', animate('100ms ease-in')),
-      transition('hidden => active', animate('100ms ease-out'))
+      transition('hidden => active', animate('100ms ease-out')),
     ]),
     trigger('textarea', [
       state(
         'active',
         style({
-          width: '50%'
-        })
+          width: '50%',
+        }),
       ),
       state(
         'hidden',
         style({
           visibility: 'hidden',
           width: '0%',
-          padding: '0px'
-        })
+          padding: '0px',
+        }),
       ),
       transition('active => hidden', animate('100ms ease-in')),
-      transition('hidden => active', animate('100ms ease-out'))
-    ])
-  ]
+      transition('hidden => active', animate('100ms ease-out')),
+    ]),
+  ],
 })
 export class EditorComponent implements OnInit {
+  @Output() feedback = new EventEmitter<any>();
+
   statu: string = 'active';
-
   html: string = '';
-
   isVisible: boolean = false;
 
   constructor() {}
@@ -69,5 +69,9 @@ export class EditorComponent implements OnInit {
 
   showmodal() {
     this.isVisible = !this.isVisible;
+  }
+
+  save() {
+    this.feedback.emit('testing');
   }
 }

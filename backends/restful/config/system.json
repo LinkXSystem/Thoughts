@@ -1,11 +1,8 @@
 {
-  "redis": {
-    "host": "47.94.83.89",
-    "port": 6379,
-    "db": 1,
-    "family": 4
+  "env": {
+    "port": 2018
   },
   "mongo": {
-    "url": "mongodb://47.94.83.89:27017/inspiration"
+    "url": "mongodb://111.230.112.23:27017/thoughts"
   }
 }

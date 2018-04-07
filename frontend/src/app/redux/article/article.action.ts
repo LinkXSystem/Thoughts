@@ -3,14 +3,35 @@ import { Article } from './article.model';
 
 export const SET_INITIAL_ARTICLES = '[article] initial';
 
-export interface SetArticleAction extends Action {
+export interface SetArticlesAction extends Action {
   articles: Article[];
 }
 
-export const setInitalArticle: ActionCreator<SetArticleAction> = articles => ({
+export const setInitalArticles: ActionCreator<
+  SetArticlesAction
+> = articles => ({
   type: SET_INITIAL_ARTICLES,
-  articles: articles
+  articles: articles,
 });
+
+/**
+ *
+ */
+
+export const SET_ARTICLE = '[article] article';
+
+export interface SetArticleAction extends Action {
+  article: Article;
+}
+
+export const SetArticle: ActionCreator<SetArticleAction> = article => ({
+  type: SET_ARTICLE,
+  article: article,
+});
+
+/**
+ *
+ */
 
 export const GET_ARTICLES_INDENTIFY = '[article indentify]';
 
@@ -22,5 +43,5 @@ export const getArticlesIndentify: ActionCreator<
   GetArticleAction
 > = indentity => ({
   type: GET_ARTICLES_INDENTIFY,
-  indentity: indentity
+  indentity: indentity,
 });

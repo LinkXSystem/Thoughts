@@ -8,7 +8,7 @@ const authority = require('./routes/authority');
 const service = require('./routes/service');
 const storage = require('./routes/storage');
 
-const interceptor = require('./modules/middleware/interceptor');
+// const interceptor = require('./modules/middleware/interceptor');
 
 const app = new express();
 
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // 处理数据访问
 app.use('/api/v1', service);
 // 处理凭证
-app.use(interceptor.verifytoken);
+// app.use(interceptor.verifytoken);
 // 处理访问授权
 app.use('/auth', authority);
 // 处理数据存储
