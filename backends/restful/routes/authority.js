@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const identify = require('uuid/v1');
+const uuid = require('uuid/v4');
 
 const variable = require('../modules/utils/variable');
 const utils = require('../modules/utils/error');
@@ -21,12 +21,17 @@ router.post('/signin', async (req, res, next) => {
       throw utils.error(400, 'verify', 'information is abnormal');
     }
 
-    const result = await mongo.User.find({
-      email: email,
-      password: confuse.encryptpassword(password),
-    });
+    const { User } = mongo.entity;
 
-    res.json({ statu: 'success', data: result });
+    const data = await User.findOne(
+      {
+        email: email,
+        password: confuse.encryptpassword(password),
+      },
+      { _id: false, __v: false },
+    );
+
+    res.json({ statu: 'success', data: data });
   } catch (err) {
     return err.name !== 'MongoError'
       ? next(err)
@@ -48,14 +53,16 @@ router.post('/signup', async (req, res, next) => {
       throw utils.error(400, 'verify', 'information is abnormal');
     }
 
-    const result = await mongo.User.create({
-      identify: identify(),
+    const { User } = mongo.entity;
+
+    const data = await User.create({
+      identify: uuid(),
       username: username,
       email: email,
       password: confuse.encryptpassword(password),
     });
 
-    res.json({ statu: 'success', data: result });
+    res.json({ statu: 'success', data: data });
   } catch (err) {
     return err.name !== 'MongoError'
       ? next(err)
