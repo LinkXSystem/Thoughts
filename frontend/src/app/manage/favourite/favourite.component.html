@@ -3,8 +3,8 @@
     <ng-template #nzTabHeading style="background-color: rgba(255, 255, 255, 1);">
       {{tab.name}}
     </ng-template>
-    <span>
-      {{tab.content}}
-    </span>
+    <div class="content loading">
+      <app-loading></app-loading>
+    </div>
   </nz-tab>
 </nz-tabset>

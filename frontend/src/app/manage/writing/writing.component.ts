@@ -3,10 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-writer',
-  templateUrl: './writer.component.html',
-  styleUrls: ['./writer.component.scss'],
+  templateUrl: './writing.component.html',
+  styleUrls: ['./writing.component.scss'],
 })
-export class WriterComponent implements OnInit {
+export class WritingComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}

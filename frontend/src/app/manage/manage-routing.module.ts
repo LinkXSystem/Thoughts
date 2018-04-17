@@ -1,8 +1,10 @@
+import { NgModule } from '@angular/core';
+
 import { Routes, RouterModule } from '@angular/router';
 import { ControlerComponent } from './controler/controler.component';
 import { SettingComponent } from './setting/setting.component';
-import { WriterComponent } from './writer/writer.component';
-import { NgModule } from '@angular/core';
+import { WritingComponent } from './writing/writing.component';
+import { TypeEditorComponent } from './type-editor/type-editor.component';
 
 const routes: Routes = [
   {
@@ -20,7 +22,11 @@ const routes: Routes = [
       },
       {
         path: 'writing',
-        component: WriterComponent,
+        component: WritingComponent,
+      },
+      {
+        path: 'type/:type',
+        component: TypeEditorComponent,
       },
     ],
   },

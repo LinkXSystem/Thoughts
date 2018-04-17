@@ -3,3 +3,15 @@
 .ant-tabs-nav-container {
   background-color: rgba($color: #ffffff, $alpha: 1) !important;
 }
+
+.content {
+  @include container;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20em;
+  padding-bottom: 20em;
+}

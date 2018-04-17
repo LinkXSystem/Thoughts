@@ -40,20 +40,63 @@
   <div nz-col [nzSpan]="6">
     <ul class="function">
       <li>
-        <a routerLink="/control/writing/article">文章</a>
+        <a routerLink="/control/writing">
+          <nz-card>
+            <ng-template #body>
+              <i class="linksystem-article" aria-hidden="true"></i>
+              <span>文章</span>
+            </ng-template>
+          </nz-card>
+        </a>
       </li>
       <li>
-        <a routerLink="/control/writing/note">笔记</a>
+        <a routerLink="/control/type/note">
+          <nz-card>
+            <ng-template #body>
+              <i class="linksystem-note" aria-hidden="true"></i>
+              <span>笔记</span>
+            </ng-template>
+          </nz-card>
+        </a>
       </li>
       <li>
-        <a routerLink="/control/writing/notice">公告</a>
+        <a routerLink="/control/type/notice">
+          <nz-card>
+            <ng-template #body>
+              <i class="linksystem-notice" aria-hidden="true"></i>
+              <span>公告</span>
+            </ng-template>
+          </nz-card>
+        </a>
       </li>
       <li>
-        <a routerLink="/control/writing/footnote">注脚</a>
+        <a routerLink="/control/type/footnote">
+          <nz-card>
+            <ng-template #body>
+              <i class="linksystem-footnote" aria-hidden="true"></i>
+              <span>注脚</span>
+            </ng-template>
+          </nz-card>
+        </a>
       </li>
     </ul>
     <ul class="grant">
-      <li>Github授权</li>
+      <li>
+        <nz-card>
+          <ng-template #body>
+            <i class="linksystem-github" aria-hidden="true"></i>
+            <span>GITHUB</span>
+          </ng-template>
+        </nz-card>
+      </li>
+      <li>
+        <nz-card>
+          <ng-template #body>
+            <i class="linksystem-wechat" aria-hidden="true"></i>
+            <span>WECHAT</span>
+          </ng-template>
+        </nz-card>
+      </li>
     </ul>
   </div>
 </div>

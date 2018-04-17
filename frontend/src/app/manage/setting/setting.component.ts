@@ -22,5 +22,8 @@ export class SettingComponent implements OnInit {
   updateState(): void {
     const state = this.store.getState();
     this.user = getUser(state);
+    console.log('====================================');
+    console.log(this.user);
+    console.log('====================================');
   }
 }

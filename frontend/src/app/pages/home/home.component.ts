@@ -15,6 +15,8 @@ import { Message } from '../../common/message';
 export class HomeComponent implements OnInit {
   articles: ItemPropType[];
 
+  disabled: boolean = false;
+
   constructor(@Inject(AppStore) private store: Store<AppState>) {
     store.subscribe(() => this.updateState());
     this.updateState();

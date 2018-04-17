@@ -20,6 +20,7 @@ import { ColumnItemCompoent } from './component/list/column-item.component';
 import { MarkdownPipe } from './pipe/markdown.pipe';
 
 import { ListDirective } from './component/list/list.directive';
+import { LoadingComponent } from './component/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ListDirective } from './component/list/list.directive';
     SearchComponent,
     UserDetailComponent,
     MarkdownPipe,
-    ListDirective
+    ListDirective,
+    LoadingComponent,
   ],
   exports: [
     ArticleViewComponent,
@@ -46,9 +48,10 @@ import { ListDirective } from './component/list/list.directive';
     LoginStatuComponent,
     NavbarComponent,
     SearchComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    LoadingComponent,
   ],
   entryComponents: [ArticleItemCompoent, ColumnItemCompoent],
-  imports: [CommonModule, FormsModule, RouterModule, NgZorroAntdModule]
+  imports: [CommonModule, FormsModule, RouterModule, NgZorroAntdModule],
 })
 export class UniversalModule {}
