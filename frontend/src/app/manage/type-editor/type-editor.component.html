@@ -1,3 +1,30 @@
-<p>
-  type-editor works!
-</p>
+<section class="container">
+  <nz-card style="width:100%;">
+    <ng-template #title>
+      公告
+    </ng-template>
+    <ng-template #extra>
+      <a>More</a>
+    </ng-template>
+    <ng-template #body>
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </ng-template>
+  </nz-card>
+  <div class="editor">
+    <textarea name="markdown"></textarea>
+  </div>
+  <nz-card nzNoHovering>
+    <ng-template #title>历史记录</ng-template>
+    <ng-template #body>
+      <div nz-card-grid [ngStyle]="gridStyle">卡片内容</div>
+      <div nz-card-grid [ngStyle]="gridStyle">卡片内容</div>
+      <div nz-card-grid [ngStyle]="gridStyle">卡片内容</div>
+      <div nz-card-grid [ngStyle]="gridStyle">卡片内容</div>
+      <div nz-card-grid [ngStyle]="gridStyle">卡片内容</div>
+      <div nz-card-grid [ngStyle]="gridStyle">卡片内容</div>
+      <div nz-card-grid [ngStyle]="gridStyle">卡片内容</div>
+    </ng-template>
+  </nz-card>
+</section>
