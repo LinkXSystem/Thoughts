@@ -48,7 +48,7 @@ app.use((err, req, res, next) => {
   res.set({
     'Content-Type': 'application/json',
   });
-  return res.json({ statu: 'error', message: err.message });
+  return res.json({ status: 'error', message: err.message });
 });
 
 module.exports = app;

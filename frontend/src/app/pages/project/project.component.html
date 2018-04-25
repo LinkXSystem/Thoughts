@@ -1,3 +1,34 @@
-<p>
-  project works!
-</p>
+<div nz-row [nzGutter]="10">
+  <section class="project" nz-col [nzSpan]="18">
+    <header class="title">
+      <h3>GITHUB Project / GITHUB 项目</h3>
+    </header>
+
+    <div class="project-list">
+      <nz-card style="width:50%;">
+        <ng-template #title>
+        </ng-template>
+        <ng-template #extra>
+          <a>More</a>
+        </ng-template>
+        <ng-template #body>
+          <p>Card content</p>
+          <p>Card content</p>
+          <p>Card content</p>
+        </ng-template>
+      </nz-card>
+      <nz-card style="width:50%;">
+        <ng-template #body>
+          <p>Card content</p>
+          <p>Card content</p>
+          <p>Card content</p>
+        </ng-template>
+      </nz-card>
+    </div>
+  </section>
+  <div nz-col [nzSpan]="6">
+    <app-login-statu [disabled]="disabled" (login)="login($event)"></app-login-statu>
+    <app-search></app-search>
+    <app-certificate></app-certificate>
+  </div>
+</div>

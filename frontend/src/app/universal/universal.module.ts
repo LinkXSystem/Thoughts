@@ -50,6 +50,7 @@ import { LoadingComponent } from './component/loading/loading.component';
     SearchComponent,
     UserDetailComponent,
     LoadingComponent,
+    MarkdownPipe,
   ],
   entryComponents: [ArticleItemCompoent, ColumnItemCompoent],
   imports: [CommonModule, FormsModule, RouterModule, NgZorroAntdModule],

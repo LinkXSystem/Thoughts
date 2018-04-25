@@ -22,6 +22,9 @@ import { UnderfinedComponent } from './pages/underfined/underfined.component';
 import { UniversalModule } from './universal/universal.module';
 import { ProjectComponent } from './pages/project/project.component';
 
+import { LoginService } from './services/login.service';
+import { StoreService } from './services/store.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,7 @@ import { ProjectComponent } from './pages/project/project.component';
     ArticleComponent,
     UserComponent,
     UnderfinedComponent,
-    ProjectComponent
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +42,9 @@ import { ProjectComponent } from './pages/project/project.component';
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
     UniversalModule,
-    SystemRoutingModule
+    SystemRoutingModule,
   ],
-  providers: [AppStoreProviders],
-  bootstrap: [AppComponent]
+  providers: [AppStoreProviders, LoginService, StoreService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,6 +29,7 @@ import { AuthenticaComponent } from './authentica/authentica.component';
     HttpClientModule,
     ManageRoutingModule,
     UniversalModule,
+    FormsModule,
   ],
 })
 export class ManageCenterModule {}

@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+/**
+ * 构建日志存储文件夹
+ */
+try {
+  require('fs').mkdirSync('./logs');
+} catch (e) {
+  if (e.code != 'EEXIST') {
+    console.error('Could not set up log directory, error was: ', e);
+    process.exit(1);
+  }
+}
+
+/**
+ * 使用log4js作为日志，及声明全局管理
+ */
+const log4js = require('log4js');
+log4js.configure('./config/log4js.json');
+
+global.log4js = log4js;
+
+const log = log4js.getLogger();
+
+/**
+ * 注意使用PM2模块进行管理
+ */
+const app = require('../app');
+
+const config = require('../config/system.json');
+
+app.set('port', config.env.port);
+
+const server = app.listen(app.get('port'), () => {
+  log.info(
+    `The server of stream listening on port ${server.address().port} with pid ${
+      process.pid
+    }`,
+  );
+});

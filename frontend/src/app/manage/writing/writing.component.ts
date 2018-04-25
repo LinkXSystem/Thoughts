@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Message } from '../../common/message';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-writer',
@@ -7,29 +8,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./writing.component.scss'],
 })
 export class WritingComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private service: StoreService) {}
 
   ngOnInit() {}
 
-  store(data: any) {
-    console.log('====================================');
-    console.log(data);
-    console.log('====================================');
-    this.http.post('/storage/article', {}).subscribe(
-      val => {
+  store(message: Message) {
+    const { status, data } = message;
+    switch (status) {
+      case 'article':
+        this.service.article(message.data);
+        break;
+      default:
         console.log('====================================');
-        console.log(val);
+        console.log(status, data);
         console.log('====================================');
-      },
-      res => {
-        console.log('====================================');
-        console.log(res);
-        console.log('====================================');
-      },
-      () => {
-        console.log('====================================');
-        console.log('====================================');
-      },
-    );
+    }
   }
 }

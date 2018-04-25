@@ -6,7 +6,7 @@ const ArticleSchema = new Schema({
   identify: String,
   column: String,
   title: String,
-  context: String,
+  content: String,
   date: Date,
   icons: [String],
 });

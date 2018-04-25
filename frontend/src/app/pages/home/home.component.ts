@@ -6,6 +6,7 @@ import { AppState, getArticles } from '../../app.reducer';
 import { AppStore } from '../../app.store';
 import { element } from 'protractor';
 import { Message } from '../../common/message';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,10 @@ export class HomeComponent implements OnInit {
 
   disabled: boolean = false;
 
-  constructor(@Inject(AppStore) private store: Store<AppState>) {
+  constructor(
+    @Inject(AppStore) private store: Store<AppState>,
+    private service: LoginService,
+  ) {
     store.subscribe(() => this.updateState());
     this.updateState();
   }
@@ -32,7 +36,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  login(data: Message) {
-    console.log(data);
+  login(message: Message) {
+    this.service.login(message.data);
+    console.log(message);
   }
 }
