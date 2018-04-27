@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const utils = require('./modules/utils/error');
 
 const authority = require('./routes/authority');
+const deletes = require('./routes/deletes');
 const service = require('./routes/service');
 const storage = require('./routes/storage');
 
@@ -37,6 +38,8 @@ app.use('/api/v1', service);
 app.use('/auth', authority);
 // 处理数据存储
 app.use('/storage', storage);
+// 处理数据管理
+app.use('/delete', deletes);
 
 app.use((req, res, next) => {
   next(utils.error(404, 'verify', 'server system rejected the reaction'));

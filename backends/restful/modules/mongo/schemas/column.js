@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 const ColumnSchema = new Schema({
   identify: String,
   title: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.new,
+  },
   description: String,
 });
 

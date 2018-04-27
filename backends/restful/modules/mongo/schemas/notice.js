@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 const NoticeSchema = new Schema({
   identify: String,
   level: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.new,
+  },
   content: String,
 });
 

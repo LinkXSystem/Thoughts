@@ -6,11 +6,23 @@ const utils = require('../modules/utils/error');
 
 const mongo = require('../modules/mongo');
 
+const object = require('../modules/utils/object');
+
 /**
  * @description 存储文章
  */
 router.post('/article', async (req, res, next) => {
   try {
+    const obj = req.body;
+
+    if (object.isEmpty(obj)) {
+      throw utils.error(404, 'verify', 'the object of data is empty');
+    }
+
+    if (object.isComplete(obj, ['title', 'icons', 'content'])) {
+      throw utils.error(404, 'verify', 'the object of data is not satisfiable');
+    }
+
     const cache = Object.assign(
       {
         identify: uuid(),
@@ -20,7 +32,7 @@ router.post('/article', async (req, res, next) => {
     const { Article } = mongo.entity;
     const data = await Article.create(cache);
     res.json({
-      state: 'successs',
+      state: 'success',
       message: '数据存储成功',
     });
   } catch (error) {

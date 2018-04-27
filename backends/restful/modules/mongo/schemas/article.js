@@ -7,7 +7,10 @@ const ArticleSchema = new Schema({
   column: String,
   title: String,
   content: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.new,
+  },
   icons: [String],
 });
 

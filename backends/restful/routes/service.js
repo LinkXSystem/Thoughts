@@ -13,7 +13,7 @@ router.get('/resume', async (req, res, next) => {
       { _id: false, __v: false, register: false, password: false },
     );
     return res.json({
-      statu: 'success',
+      status: 'success',
       data: data,
     });
   } catch (error) {

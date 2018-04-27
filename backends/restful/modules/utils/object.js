@@ -16,10 +16,10 @@ const getCompare = (target, data) => {
 };
 
 /**
- * 
+ *
  * @param {*} obj 目标对象
- * 
- * @description 
+ *
+ * @description
  */
 const getActual = obj => {
   let container = {};
@@ -33,17 +33,17 @@ const getActual = obj => {
 };
 
 /**
- * 
- * @param {*} obj 
+ *
+ * @param {*} obj
  */
 const isEmpty = obj => {
-  return Object.keys(obj).length ? true : false;
+  return Object.keys(obj).length ? false : true;
 };
 
 /**
- * 
- * @param {*} obj 
- * @param {*} prototypes 
+ *
+ * @param {*} obj
+ * @param {*} prototypes
  */
 const isComplete = (obj, prototypes) => {
   const cache = getActual(obj);

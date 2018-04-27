@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 const FootnoteSchema = new Schema({
   identify: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.new,
+  },
   content: String,
 });
 

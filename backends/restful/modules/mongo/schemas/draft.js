@@ -7,7 +7,10 @@ const DraftSchema = new Schema({
   column: String,
   title: String,
   context: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.new,
+  },
   icons: [String],
 });
 
