@@ -9,13 +9,13 @@ import { CertificateComponent } from './component/certificate/certificate.compon
 import { EditorComponent } from './component/editor/editor.component';
 import { GithubComponent } from './component/github/github.component';
 import { ListComponent } from './component/list/list.component';
-import { LoginStatuComponent } from './component/login-statu/login-statu.component';
+import { LoginStatusComponent } from './component/login-status/login-status.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SearchComponent } from './component/search/search.component';
 import { UserDetailComponent } from './component/user-detail/user-detail.component';
 
-import { ArticleItemCompoent } from './component/list/article-item.component';
-import { ColumnItemCompoent } from './component/list/column-item.component';
+import { ArticleItemComponent } from './component/list/article-item.component';
+import { ColumnItemComponent } from './component/list/column-item.component';
 
 import { MarkdownPipe } from './pipe/markdown.pipe';
 
@@ -29,9 +29,9 @@ import { LoadingComponent } from './component/loading/loading.component';
     EditorComponent,
     GithubComponent,
     ListComponent,
-    ArticleItemCompoent,
-    ColumnItemCompoent,
-    LoginStatuComponent,
+    ArticleItemComponent,
+    ColumnItemComponent,
+    LoginStatusComponent,
     NavbarComponent,
     SearchComponent,
     UserDetailComponent,
@@ -45,14 +45,14 @@ import { LoadingComponent } from './component/loading/loading.component';
     EditorComponent,
     GithubComponent,
     ListComponent,
-    LoginStatuComponent,
+    LoginStatusComponent,
     NavbarComponent,
     SearchComponent,
     UserDetailComponent,
     LoadingComponent,
     MarkdownPipe,
   ],
-  entryComponents: [ArticleItemCompoent, ColumnItemCompoent],
+  entryComponents: [ArticleItemComponent, ColumnItemComponent],
   imports: [CommonModule, FormsModule, RouterModule, NgZorroAntdModule],
 })
 export class UniversalModule {}

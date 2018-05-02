@@ -10,6 +10,6 @@ import { ItemComponent } from './item-interface.component';
   `,
   styleUrls: ['./list.component.scss']
 })
-export class ColumnItemCompoent implements ItemComponent {
+export class ColumnItemComponent implements ItemComponent {
   @Input() data: any;
 }

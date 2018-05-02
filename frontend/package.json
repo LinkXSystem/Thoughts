@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@ngrx/store": "^5.2.0",
+    "@ngrx/store-devtools": "^5.2.0",
     "@types/js-base64": "^2.3.1",
     "core-js": "^2.4.1",
     "fingerprintjs2": "^1.6.1",

@@ -1,8 +1,8 @@
 export interface Article {
   identify: string;
-  href: string;
+  column: string;
   title: string;
-  type: string;
-  date: Date;
   content: string;
+  date: Date;
+  icons: string[];
 }

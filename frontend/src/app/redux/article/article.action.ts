@@ -1,47 +1,29 @@
-import { Action, ActionCreator } from 'redux';
+import { Action } from '@ngrx/store';
 import { Article } from './article.model';
 
-export const SET_INITIAL_ARTICLES = '[article] initial';
-
-export interface SetArticlesAction extends Action {
-  articles: Article[];
+export enum ArticleTypes {
+  ArticleInitial = '[Article] Initial Data',
+  ArticleReader = '[Article] reader',
 }
 
-export const setInitalArticles: ActionCreator<
-  SetArticlesAction
-> = articles => ({
-  type: SET_INITIAL_ARTICLES,
-  articles: articles,
-});
+export class ArticleInitial implements Action {
+  readonly type = ArticleTypes.ArticleInitial;
 
-/**
- *
- */
-
-export const SET_ARTICLE = '[article] article';
-
-export interface SetArticleAction extends Action {
-  article: Article;
+  constructor(
+    public payload: {
+      articles: Article[];
+    },
+  ) {}
 }
 
-export const SetArticle: ActionCreator<SetArticleAction> = article => ({
-  type: SET_ARTICLE,
-  article: article,
-});
+export class ArticleReader implements Action {
+  readonly type = ArticleTypes.ArticleReader;
 
-/**
- *
- */
-
-export const GET_ARTICLES_INDENTIFY = '[article indentify]';
-
-export interface GetArticleAction extends Action {
-  indentity: string;
+  constructor(
+    public payload: {
+      reader: Article;
+    },
+  ) {}
 }
 
-export const getArticlesIndentify: ActionCreator<
-  GetArticleAction
-> = indentity => ({
-  type: GET_ARTICLES_INDENTIFY,
-  indentity: indentity,
-});
+export type ArticleUnion = ArticleInitial | ArticleReader;

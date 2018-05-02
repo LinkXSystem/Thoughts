@@ -15,15 +15,19 @@ import { ColumnComponent } from './pages/column/column.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
 
-import { AppStore, AppStoreProviders } from './app.store';
-
 import { SystemRoutingModule } from './routing.module';
-import { UnderfinedComponent } from './pages/underfined/underfined.component';
+import { UndefinedComponent } from './pages/undefined/undefined.component';
 import { UniversalModule } from './universal/universal.module';
 import { ProjectComponent } from './pages/project/project.component';
 
 import { LoginService } from './services/login.service';
+import { GetService } from './services/get.service';
 import { StoreService } from './services/store.service';
+
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { AuthReducer } from './redux/auth/auth.reducer';
+import { ArticleReducer } from './redux/article/article.reducer';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,7 @@ import { StoreService } from './services/store.service';
     ColumnComponent,
     ArticleComponent,
     UserComponent,
-    UnderfinedComponent,
+    UndefinedComponent,
     ProjectComponent,
   ],
   imports: [
@@ -43,8 +47,15 @@ import { StoreService } from './services/store.service';
     NgZorroAntdModule.forRoot(),
     UniversalModule,
     SystemRoutingModule,
+    StoreModule.forRoot({
+      auth: AuthReducer,
+      article: ArticleReducer,
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    }),
   ],
-  providers: [AppStoreProviders, LoginService, StoreService],
+  providers: [LoginService, GetService, StoreService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

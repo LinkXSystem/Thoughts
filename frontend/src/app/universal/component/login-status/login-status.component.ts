@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Message } from '../../../common/message';
 
 @Component({
-  selector: 'app-login-statu',
-  templateUrl: './login-statu.component.html',
-  styleUrls: ['./login-statu.component.scss'],
+  selector: 'app-login-status',
+  templateUrl: './login-status.component.html',
+  styleUrls: ['./login-status.component.scss'],
 })
-export class LoginStatuComponent {
+export class LoginStatusComponent {
   @Input() disabled: boolean = true;
 
   isVisible: boolean = false;

@@ -18,6 +18,6 @@ import { ItemComponent } from './item-interface.component';
   `,
   styleUrls: ['./list.component.scss']
 })
-export class ArticleItemCompoent implements ItemComponent {
+export class ArticleItemComponent implements ItemComponent {
   @Input() data: any;
 }
