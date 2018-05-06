@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ls -l' 
+                sh 'cd frontend & npm install' 
             }
         }
     }
