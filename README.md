@@ -8,3 +8,17 @@
 
 * 获取指定用户项目： https://api.github.com/users/:username/repos
 * 基于 fork 字段获取自己的项目
+
+> Jenkins 部署
+
+```
+docker run \
+  --rm \
+  -d \
+  -u root \
+  -p 8080:8080 \
+  -v jenkins-data:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v "$HOME":/home \
+  jenkinsci/blueocean
+```

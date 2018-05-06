@@ -73,4 +73,28 @@ router.post('/signin', async (req, res, next) => {
 //   }
 // });
 
+router.post('/fingerprint', async (req, res, next) => {
+  try {
+    const { fingerprint } = req.body;
+    const { User } = mongo.entity;
+    const data = await User.findOne({
+      fingerprint,
+    });
+
+    if (!data) {
+      return res.json({
+        status: 'error',
+        message: 'the client is not within the scope of authorization',
+      });
+    }
+
+    res.json({
+      status: 'success',
+      message: 'launch authorization',
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

@@ -1,10 +1,11 @@
 <nz-tabset class="favourite">
-  <nz-tab *ngFor="let tab of tabs">
+  <nz-tab *ngFor="let tab of tabs" (nzSelect)="selects(tab)">
     <ng-template #nzTabHeading style="background-color: rgba(255, 255, 255, 1);">
       {{tab.name}}
     </ng-template>
-    <div class="content loading">
+    <div *ngIf="tab.loading" class="content loading">
       <app-loading></app-loading>
     </div>
+    <app-list [list]="tab.data"></app-list>
   </nz-tab>
 </nz-tabset>

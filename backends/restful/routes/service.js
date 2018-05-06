@@ -24,18 +24,20 @@ router.get('/resume', async (req, res, next) => {
 /**
  * @description 获取文章
  */
-router.get('/article', async (req, res, next) => {
+router.post('/article', async (req, res, next) => {
   try {
     const term = Object.assign({}, req.body);
-    const data = await mongo.entity.Article.find(term, {
+
+    const { Article } = mongo.entity;
+
+    const data = await Article.find(term, {
       _id: false,
       __v: false,
     });
+
     return res.json({
-      code: 200,
-      data: {
-        articles: data,
-      },
+      status: 'success',
+      list: data,
     });
   } catch (error) {
     next(error);
@@ -45,15 +47,16 @@ router.get('/article', async (req, res, next) => {
 /**
  * @description 获取专栏
  */
-router.get('/column', async (req, res, next) => {
+router.post('/column', async (req, res, next) => {
   try {
     const term = Object.assign({}, req.body);
-    const data = await mongo.Article.find(term, { _id: false, __v: false });
+    const { Column } = mongo.entity;
+
+    const data = await Column.find(term, { _id: false, __v: false });
+
     return res.json({
-      code: 200,
-      data: {
-        articles: data,
-      },
+      status: 'success',
+      list: data,
     });
   } catch (error) {
     next(error);

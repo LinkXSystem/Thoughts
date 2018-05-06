@@ -1,0 +1,34 @@
+.mock {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    margin-top: 0.5em;
+    font-size: 1.15em;
+
+    em {
+      display: inline-block;
+      width: 3ch;
+      text-indent: -1ch;
+      visibility: bottom;
+      overflow: hidden;
+      animation: dot 3s infinite step-start both;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    @keyframes dot {
+      33% {
+        text-indent: 0;
+      }
+      66% {
+        text-indent: -2ch;
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { Store } from 'redux';
 import { HttpClient } from '@angular/common/http';
 
 import { Response } from './common/response';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -21,10 +22,15 @@ export class AppComponent implements OnInit {
     new Router('/user-detail', '简历'),
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private service: AuthService, private http: HttpClient) {}
 
   ngOnInit() {
     this.initial();
+    this.service.fingerprint().subscribe(res => {
+      console.log('====================================');
+      console.log(res);
+      console.log('====================================');
+    });
   }
 
   initial() {

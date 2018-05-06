@@ -6,32 +6,44 @@ const utils = require('../modules/utils/error');
 
 const mongo = require('../modules/mongo');
 
-router.delete('/article/:identify', async (req, res, next) => {
+router.get('/article/:identify', async (req, res, next) => {
   try {
     const { identify } = req.params;
 
     const { Article } = mongo.entity;
 
-    await Article.remove({ identify });
+    const data = await Article.findOne(
+      {
+        identify,
+      },
+      { _id: false, __v: false },
+    );
 
     res.json({
       status: 'success',
+      data,
     });
   } catch (error) {
     next(error);
   }
 });
 
-router.delete('column/:identify', async (req, res, next) => {
+router.get('/column/:identify', async (req, res, next) => {
   try {
     const { identify } = req.params;
 
     const { Column } = mongo.entity;
 
-    await Article.remove({ identify });
+    const data = await Column.findOne(
+      {
+        identify,
+      },
+      { _id: false, __v: false },
+    );
 
     res.json({
       status: 'success',
+      data,
     });
   } catch (error) {
     next(error);

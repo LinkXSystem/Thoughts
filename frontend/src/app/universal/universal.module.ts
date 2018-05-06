@@ -18,6 +18,7 @@ import { ArticleItemComponent } from './component/list/article-item.component';
 import { ColumnItemComponent } from './component/list/column-item.component';
 
 import { MarkdownPipe } from './pipe/markdown.pipe';
+import { MarkdownDecodePipe } from './pipe/markdown-decode.pipe';
 
 import { ListDirective } from './component/list/list.directive';
 import { LoadingComponent } from './component/loading/loading.component';
@@ -36,6 +37,7 @@ import { LoadingComponent } from './component/loading/loading.component';
     SearchComponent,
     UserDetailComponent,
     MarkdownPipe,
+    MarkdownDecodePipe,
     ListDirective,
     LoadingComponent,
   ],
@@ -51,6 +53,7 @@ import { LoadingComponent } from './component/loading/loading.component';
     UserDetailComponent,
     LoadingComponent,
     MarkdownPipe,
+    MarkdownDecodePipe,
   ],
   entryComponents: [ArticleItemComponent, ColumnItemComponent],
   imports: [CommonModule, FormsModule, RouterModule, NgZorroAntdModule],

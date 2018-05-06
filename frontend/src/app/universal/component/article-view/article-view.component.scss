@@ -2,6 +2,7 @@
 
 header {
   @include container;
+  padding: 1em;
   margin-bottom: 0.5em;
 
   h2 {
@@ -24,4 +25,6 @@ header {
 
 article {
   @include container;
+
+  padding: 1em;
 }

@@ -8,6 +8,8 @@ const authority = require('./routes/authority');
 const deletes = require('./routes/deletes');
 const service = require('./routes/service');
 const storage = require('./routes/storage');
+const modify = require('./routes/modify');
+const identify = require('./routes/identify');
 
 // const interceptor = require('./modules/middleware/interceptor');
 
@@ -32,6 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // 处理数据访问
 app.use('/api/v1', service);
+app.use('/api/v1', identify);
+app.use('/api/v1', deletes);
 // 处理凭证
 // app.use(interceptor.verifytoken);
 // 处理访问授权
@@ -39,6 +43,7 @@ app.use('/auth', authority);
 // 处理数据存储
 app.use('/storage', storage);
 // 处理数据管理
+app.use('/modify', modify);
 app.use('/delete', deletes);
 
 app.use((req, res, next) => {

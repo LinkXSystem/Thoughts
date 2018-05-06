@@ -23,6 +23,9 @@ import { ProjectComponent } from './pages/project/project.component';
 import { LoginService } from './services/login.service';
 import { GetService } from './services/get.service';
 import { StoreService } from './services/store.service';
+import { AuthService } from './services/auth.service';
+import { DeleteService } from './services/delete.service';
+import { ModifyService } from './services/modify.service';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -55,7 +58,14 @@ import { ArticleReducer } from './redux/article/article.reducer';
       maxAge: 25,
     }),
   ],
-  providers: [LoginService, GetService, StoreService],
+  providers: [
+    LoginService,
+    AuthService,
+    GetService,
+    StoreService,
+    DeleteService,
+    ModifyService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

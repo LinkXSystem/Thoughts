@@ -6,6 +6,7 @@ import { element } from 'protractor';
 import { Message } from '../../common/message';
 import { LoginService } from '../../services/login.service';
 import { GetService } from '../../services/get.service';
+import { log } from 'util';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,16 @@ export class HomeComponent implements OnInit {
   constructor(private service: LoginService, private sources: GetService) {}
 
   ngOnInit() {
-    this.sources.article();
+    const self = this;
+    self.sources.articles().subscribe(res => {
+      const { list } = res;
+      self.articles = list.map(item => {
+        item = Object.assign({}, item, {
+          href: `/article/${item.identify}`,
+        });
+        return new ItemPropType(ArticleItemComponent, item);
+      });
+    });
   }
 
   updateState(): void {}

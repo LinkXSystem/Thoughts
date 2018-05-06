@@ -1,0 +1,57 @@
+<div nz-row [nzGutter]="10">
+  <div nz-col [nzSpan]="18">
+    <div *ngIf="!data" class="mock">
+      <img src="../../../assets/images/empty.png" alt="">
+      <span>
+        路由寻址中
+        <em>...</em>
+      </span>
+    </div>
+
+    <app-article-view *ngIf="data" [data]="data"></app-article-view>
+  </div>
+  <div nz-col [nzSpan]="6">
+    <ul class="function">
+      <li>
+        <a routerLink="/control/writing" style="color: rgba(16, 142, 233, 1);">
+          <nz-card>
+            <ng-template #body>
+              <i class="anticon anticon-edit" aria-hidden="true"></i>
+              <span>编辑</span>
+            </ng-template>
+          </nz-card>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/control/writing">
+          <nz-card>
+            <ng-template #body>
+              <i class="linksystem-article" aria-hidden="true"></i>
+              <span>专栏</span>
+            </ng-template>
+          </nz-card>
+        </a>
+      </li>
+      <li>
+        <div style="color: rgba(240, 65, 52, 1);" (click)='remove()'>
+          <nz-card>
+            <ng-template #body>
+              <i class="anticon anticon-delete" aria-hidden="true"></i>
+              <span>删除</span>
+            </ng-template>
+          </nz-card>
+        </div>
+      </li>
+      <li>
+        <div style="color: rgba(255, 191, 0, 1);">
+          <nz-card>
+            <ng-template #body>
+              <i class="anticon anticon-rollback" aria-hidden="true"></i>
+              <span>恢复</span>
+            </ng-template>
+          </nz-card>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -46,8 +46,7 @@ const isEmpty = obj => {
  * @param {*} prototypes
  */
 const isComplete = (obj, prototypes) => {
-  const cache = getActual(obj);
-  const keys = Object.keys(cache);
+  const keys = Object.keys(obj);
   if (!getCompare(prototypes, keys)) {
     return false;
   }

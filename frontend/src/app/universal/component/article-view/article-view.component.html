@@ -2,9 +2,11 @@
   <header class="header">
     <h2>{{data.title}}</h2>
     <ul>
-      <li class="icon">{{data.type}}</li>
+      <li *ngFor="let item of data.icons" class="icon">
+        {{item}}
+      </li>
       <li>{{data.date | date:'yyyy.MM.dd'}}</li>
     </ul>
   </header>
-  <article class="markdown view" [innerHTML]="(data.content | markdown)"></article>
+  <article class="markdown view" [innerHTML]="(data.content | decode | markdown)"></article>
 </section>

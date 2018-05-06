@@ -1,1 +1,9 @@
-<app-article-view [data]="data"></app-article-view>
+<div *ngIf="!data" class="mock">
+  <img src="../../../assets/images/empty.png" alt="">
+  <span>
+    路由寻址中
+    <em>...</em>
+  </span>
+</div>
+
+<app-article-view *ngIf="data" [data]="data"></app-article-view>

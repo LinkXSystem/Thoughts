@@ -13,6 +13,8 @@ import { UniversalModule } from '../universal/universal.module';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { TypeEditorComponent } from './type-editor/type-editor.component';
 import { AuthenticaComponent } from './authentica/authentica.component';
+import { ArticleEditorComponent } from './article-editor/article-editor.component';
+import { ColumnEditorComponent } from './column-editor/column-editor.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { AuthenticaComponent } from './authentica/authentica.component';
     FavouriteComponent,
     TypeEditorComponent,
     AuthenticaComponent,
+    ArticleEditorComponent,
+    ColumnEditorComponent,
   ],
   imports: [
     CommonModule,

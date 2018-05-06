@@ -4,7 +4,7 @@ import {
   Input,
   ViewChild,
   ComponentFactoryResolver,
-  AfterViewInit
+  AfterViewInit,
 } from '@angular/core';
 import { ItemPropType } from './item-proptypes';
 import { ListDirective } from './list.directive';
@@ -13,7 +13,7 @@ import { ItemComponent } from './item-interface.component';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit, AfterViewInit {
   @Input() list: ItemPropType[];
@@ -26,6 +26,10 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.build();
   }
 
+  ngOnChanges() {
+    this.build();
+  }
+
   ngAfterViewInit() {
     // this.build();
   }
@@ -35,7 +39,7 @@ export class ListComponent implements OnInit, AfterViewInit {
 
     this.list.forEach(element => {
       const factory = this.componentFactoryResolver.resolveComponentFactory(
-        element.component
+        element.component,
       );
       const viewContainerRef = this.container.viewContainerRef;
       const componentRef = viewContainerRef.createComponent(factory);

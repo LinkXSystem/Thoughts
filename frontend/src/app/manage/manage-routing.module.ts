@@ -5,6 +5,9 @@ import { ControlerComponent } from './controler/controler.component';
 import { SettingComponent } from './setting/setting.component';
 import { WritingComponent } from './writing/writing.component';
 import { TypeEditorComponent } from './type-editor/type-editor.component';
+import { ColumnEditorComponent } from './column-editor/column-editor.component';
+
+import { ArticleEditorComponent } from './article-editor/article-editor.component';
 
 const routes: Routes = [
   {
@@ -27,6 +30,14 @@ const routes: Routes = [
       {
         path: 'type/:type',
         component: TypeEditorComponent,
+      },
+      {
+        path: 'article-editor/:identify',
+        component: ArticleEditorComponent,
+      },
+      {
+        path: 'column-editor/:identify',
+        component: ColumnEditorComponent,
       },
     ],
   },

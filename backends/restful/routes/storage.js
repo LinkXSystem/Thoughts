@@ -19,13 +19,14 @@ router.post('/article', async (req, res, next) => {
       throw utils.error(404, 'verify', 'the object of data is empty');
     }
 
-    if (object.isComplete(obj, ['title', 'icons', 'content'])) {
+    if (!object.isComplete(obj, ['title', 'icons', 'content'])) {
       throw utils.error(404, 'verify', 'the object of data is not satisfiable');
     }
 
     const cache = Object.assign(
       {
         identify: uuid(),
+        date: new Date(),
       },
       req.body,
     );
@@ -48,13 +49,14 @@ router.post('/column', async (req, res, next) => {
     const cache = Object.assign(
       {
         identify: uuid(),
+        date: new Date(),
       },
       req.body,
     );
     const { Column } = mongo.entity;
     const data = await Column.create(cache);
     res.json({
-      state: 'successs',
+      state: 'success',
       message: '数据存储成功',
     });
   } catch (error) {
