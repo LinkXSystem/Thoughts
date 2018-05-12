@@ -12,6 +12,10 @@ router.post('/user', async (req, res, next) => {
 
     const { User } = mongo.entity;
 
+    console.log('====================================');
+    console.log(identify, obj);
+    console.log('====================================');
+
     delete obj['identify'];
 
     const data = await User.update({ identify }, obj, { multi: true });

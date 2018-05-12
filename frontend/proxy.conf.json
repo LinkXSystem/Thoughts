@@ -11,7 +11,11 @@
     "target": "http://localhost:2018"
   },
 
-  "/modify/*": {
+  "/obtain/*": {
+    "target": "http://localhost:2018"
+  },
+
+  "/update/*": {
     "target": "http://localhost:2018"
   },
 

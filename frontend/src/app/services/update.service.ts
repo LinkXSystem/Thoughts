@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
 
 @Injectable()
-export class ModifyService {
+export class UpdateService {
   constructor(private client: HttpClient) {}
 
   update(type, data): Observable<any> {

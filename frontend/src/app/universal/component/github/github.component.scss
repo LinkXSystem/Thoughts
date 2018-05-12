@@ -1,0 +1,26 @@
+@import '../../../../styles/function.scss';
+
+.container {
+  form {
+    .input-item {
+      display: flex;
+      align-items: center;
+
+      margin-bottom: 1em;
+
+      span {
+        margin-right: 1em;
+      }
+
+      input {
+        display: block;
+        flex: 1;
+        height: 2.5em;
+        padding: 0.5em 0.5em;
+
+        border: 1px solid #c0ccda;
+        border-radius: 4px;
+      }
+    }
+  }
+}

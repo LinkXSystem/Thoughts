@@ -42,36 +42,39 @@ router.post('/signin', async (req, res, next) => {
 });
 
 // 由于是唯一注册，故关闭注册接口
-// router.post('/signup', async (req, res, next) => {
-//   const username = req.body.username;
-//   const email = req.body.email;
-//   const password = req.body.password;
+router.post('/signup', async (req, res, next) => {
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
 
-//   try {
-//     if (!username || !email || !password) {
-//       throw utils.error(400, 'verify', 'information is abnormal');
-//     }
+  try {
+    if (!username || !email || !password) {
+      throw utils.error(400, 'verify', 'information is abnormal');
+    }
 
-//     if (!email.match(variable.regex)) {
-//       throw utils.error(400, 'verify', 'information is abnormal');
-//     }
+    if (!email.match(variable.regex)) {
+      throw utils.error(400, 'verify', 'information is abnormal');
+    }
 
-//     const { User } = mongo.entity;
+    const { User } = mongo.entity;
 
-//     const data = await User.create({
-//       identify: uuid(),
-//       username: username,
-//       email: email,
-//       password: confuse.encrypt(password),
-//     });
+    const data = await User.create({
+      identify: uuid(),
+      username: username,
+      email: email,
+      password: confuse.encrypt(password),
+      fingerprint: '',
+      position: '',
+      description: '',
+    });
 
-//     res.json({ statu: 'success', data: data });
-//   } catch (err) {
-//     return err.name !== 'MongoError'
-//       ? next(err)
-//       : next(utils.error(400, 'verify', `${email} is abnormal`));
-//   }
-// });
+    res.json({ statu: 'success', data: data });
+  } catch (err) {
+    return err.name !== 'MongoError'
+      ? next(err)
+      : next(utils.error(400, 'verify', `${email} is abnormal`));
+  }
+});
 
 router.post('/fingerprint', async (req, res, next) => {
   try {

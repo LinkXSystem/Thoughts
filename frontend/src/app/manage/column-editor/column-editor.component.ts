@@ -5,7 +5,7 @@ import { StoreService } from '../../services/store.service';
 import { NzNotificationService } from 'ng-zorro-antd';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModifyService } from '../../services/modify.service';
+import { UpdateService } from '../../services/update.service';
 
 import { Base64 } from 'js-base64';
 
@@ -26,7 +26,7 @@ export class ColumnEditorComponent implements OnInit {
 
   constructor(
     private service: GetService,
-    private modify: ModifyService,
+    private modify: UpdateService,
     private action: StoreService,
     private route: ActivatedRoute,
     private router: Router,

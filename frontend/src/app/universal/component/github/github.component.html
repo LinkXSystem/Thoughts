@@ -1,3 +1,18 @@
-<p>
-  github works!
-</p>
+<section class="container">
+  <nz-card (click)="showmodal()">
+    <ng-template #body>
+      <i class="linksystem-github" aria-hidden="true"></i>
+      <span>GITHUB</span>
+    </ng-template>
+  </nz-card>
+  <nz-modal class="modal" [nzVisible]="isVisible" [nzTitle]="'GITHUB账号'" [nzWidth]="450" [nzContent]="modalContent" (nzOnCancel)="showmodal()">
+    <ng-template #modalContent>
+      <form>
+        <div class="item input-item">
+          <span>GITHUB地址</span>
+          <input type="email" [(ngModel)]="username" name="username" required />
+        </div>
+      </form>
+    </ng-template>
+  </nz-modal>
+</section>

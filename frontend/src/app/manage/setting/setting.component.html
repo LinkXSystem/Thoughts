@@ -17,20 +17,21 @@
             <i class="linksystem-weibo" aria-hidden="true"></i>
           </li>
           <li>
-            <app-user-modify></app-user-modify>
+            <app-user-modify [user]="user" (update)="update($event)"></app-user-modify>
           </li>
         </ul>
         <div class="fieldset-info">
           <h3>
             <i class="linksystem-user" aria-hidden="true"></i>
-            <!-- {{user.name}} -->
+            {{user.username}}
           </h3>
           <p>
             <i class="linksystem-briefcase" aria-hidden="true"></i>
+            {{user.position}}
           </p>
           <p>
             <i class="linksystem-tags"></i>
-            <!-- {{user.declaration}} -->
+            {{user.description}}
           </p>
         </div>
       </fieldset>
@@ -92,12 +93,7 @@
     </ul>
     <ul class="grant">
       <li>
-        <nz-card>
-          <ng-template #body>
-            <i class="linksystem-github" aria-hidden="true"></i>
-            <span>GITHUB</span>
-          </ng-template>
-        </nz-card>
+        <app-github></app-github>
       </li>
       <li>
         <nz-card>

@@ -10,11 +10,13 @@ const UserSchema = new Schema({
     unique: true,
   },
   password: String,
+  fingerprint: String,
+  position: String,
+  description: String,
   register: {
     type: Date,
     default: Date.now,
   },
-  fingerprint: String,
 });
 
 UserSchema.statics.findUser = function(option) {

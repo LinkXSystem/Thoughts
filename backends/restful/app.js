@@ -4,12 +4,15 @@ const bodyParser = require('body-parser');
 
 const utils = require('./modules/utils/error');
 
-const authority = require('./routes/authority');
-const deletes = require('./routes/deletes');
-const service = require('./routes/service');
-const storage = require('./routes/storage');
-const modify = require('./routes/modify');
 const identify = require('./routes/identify');
+const list = require('./routes/list');
+
+const authority = require('./routes/authority');
+
+const storage = require('./routes/storage');
+const obtain = require('./routes/obtain');
+const update = require('./routes/update');
+const deletes = require('./routes/delete');
 
 // const interceptor = require('./modules/middleware/interceptor');
 
@@ -33,17 +36,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // 处理数据访问
-app.use('/api/v1', service);
 app.use('/api/v1', identify);
-app.use('/api/v1', deletes);
+app.use('/api/v1', list);
+
 // 处理凭证
 // app.use(interceptor.verifytoken);
+
 // 处理访问授权
 app.use('/auth', authority);
-// 处理数据存储
+
+// 处理数据
 app.use('/storage', storage);
-// 处理数据管理
-app.use('/modify', modify);
+app.use('/obtain', obtain);
+app.use('/update', update);
 app.use('/delete', deletes);
 
 app.use((req, res, next) => {

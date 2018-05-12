@@ -1,5 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { User } from '../../redux/auth/auth.model';
+import { Message } from '../../common/message';
+import { UserService } from '../../services/user.service';
+
+import { NzNotificationService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-setting',
@@ -7,11 +11,31 @@ import { User } from '../../redux/auth/auth.model';
   styleUrls: ['./setting.component.scss'],
 })
 export class SettingComponent implements OnInit {
-  user: User;
+  user: any = {
+    username: '',
+  };
 
-  constructor() {}
+  constructor(
+    private service: UserService,
+    private _notification: NzNotificationService,
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.obtain().subscribe(res => {
+      this.user = res.data;
+    });
+  }
 
   updateState(): void {}
+
+  update(message: Message) {
+    const { identify } = this.user;
+
+    const data = Object.assign({}, message.data, { identify });
+
+    this.service.update(data).subscribe(res => {
+      this.user = Object.assign({}, this.user, data);
+      this._notification.create('info', '消息', '信息更新成功');
+    });
+  }
 }

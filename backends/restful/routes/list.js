@@ -5,45 +5,6 @@ const utils = require('../modules/utils/error');
 
 const mongo = require('../modules/mongo');
 
-router.get('/resume', async (req, res, next) => {
-  try {
-    const { User } = mongo.entity;
-    const data = await User.findOne(
-      {},
-      { _id: false, __v: false, register: false, password: false },
-    );
-    return res.json({
-      status: 'success',
-      data: data,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.get('/account', async (req, res, next) => {
-  try {
-    if (!req.query.name)
-      throw utils.error(404, 'verify', 'the name of field is empty');
-
-    const { Account } = mongo.entity;
-
-    const data = await Account.findOne(
-      {
-        name: name,
-      },
-      { _id: false, __v: false },
-    );
-
-    res.json({
-      status: 'success',
-      data,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
-
 /**
  * @description 获取文章
  */

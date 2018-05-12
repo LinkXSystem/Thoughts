@@ -25,7 +25,8 @@ import { GetService } from './services/get.service';
 import { StoreService } from './services/store.service';
 import { AuthService } from './services/auth.service';
 import { DeleteService } from './services/delete.service';
-import { ModifyService } from './services/modify.service';
+import { UpdateService } from './services/update.service';
+import { UserService } from './services/user.service';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -66,7 +67,8 @@ import { ColumnDetailComponent } from './pages/column-detail/column-detail.compo
     GetService,
     StoreService,
     DeleteService,
-    ModifyService,
+    UpdateService,
+    UserService,
   ],
   bootstrap: [AppComponent],
 })
