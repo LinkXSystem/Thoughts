@@ -1,0 +1,9 @@
+<div nz-row>
+  <div nz-col [nzSpan]="16">
+    <div class="column">
+      <h2>{{data.title}}</h2>
+      <div class="markdown" [innerHTML]="(data.description | decode | markdown)"></div>
+    </div>
+    <!-- <app-list [list]="data"></app-list> -->
+  </div>
+</div>

@@ -7,6 +7,8 @@ import { NzNotificationService } from 'ng-zorro-antd';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModifyService } from '../../services/modify.service';
 
+import { Base64 } from 'js-base64';
+
 @Component({
   selector: 'app-column-editor',
   templateUrl: './column-editor.component.html',
@@ -59,8 +61,6 @@ export class ColumnEditorComponent implements OnInit {
 
   stores() {
     const { action, data } = this;
-
-    const self = this;
 
     action.store('column', this.data).subscribe(res => {
       this._notification.create('info', '消息', '专栏创建成功');

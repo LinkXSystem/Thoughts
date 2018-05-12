@@ -6,7 +6,7 @@ import { GetService } from '../../services/get.service';
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
-  styleUrls: ['./column.component.scss']
+  styleUrls: ['./column.component.scss'],
 })
 export class ColumnComponent implements OnInit {
   data: ItemPropType[];
@@ -14,7 +14,7 @@ export class ColumnComponent implements OnInit {
   constructor(private service: GetService) {}
 
   ngOnInit() {
-    const {service} = this;
+    const { service } = this;
 
     const self = this;
 
@@ -23,11 +23,11 @@ export class ColumnComponent implements OnInit {
 
       self.data = list.map(item => {
         item = Object.assign({}, item, {
-          href: `/column/${item.identify}`
-        })
+          href: `/column-detail/${item.identify}`,
+        });
 
         return new ItemPropType(ColumnItemComponent, item);
-      })
-    })
+      });
+    });
   }
 }

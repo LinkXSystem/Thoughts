@@ -21,6 +21,29 @@ router.get('/resume', async (req, res, next) => {
   }
 });
 
+router.get('/account', async (req, res, next) => {
+  try {
+    if (!req.query.name)
+      throw utils.error(404, 'verify', 'the name of field is empty');
+
+    const { Account } = mongo.entity;
+
+    const data = await Account.findOne(
+      {
+        name: name,
+      },
+      { _id: false, __v: false },
+    );
+
+    res.json({
+      status: 'success',
+      data,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 /**
  * @description 获取文章
  */
@@ -66,15 +89,17 @@ router.post('/column', async (req, res, next) => {
 /**
  * @description 获取注脚
  */
-router.get('/footnote', async (req, res, next) => {
+router.post('/footnote', async (req, res, next) => {
   try {
     const term = Object.assign({}, req.body);
-    const data = await mongo.Article.find(term, { _id: false, __v: false });
+
+    const { Footnote } = mongo.entity;
+
+    const data = await Footnote.find(term, { _id: false, __v: false });
+
     return res.json({
-      code: 200,
-      data: {
-        articles: data,
-      },
+      status: 'success',
+      list: data,
     });
   } catch (error) {
     next(error);
@@ -84,15 +109,17 @@ router.get('/footnote', async (req, res, next) => {
 /**
  * @description 获取公告
  */
-router.get('/notice', async (req, res, next) => {
+router.post('/notice', async (req, res, next) => {
   try {
     const term = Object.assign({}, req.body);
-    const data = await mongo.Article.find(term, { _id: false, __v: false });
+
+    const { Notice } = mongo.entity;
+
+    const data = await Notice.find(term, { _id: false, __v: false });
+
     return res.json({
-      code: 200,
-      data: {
-        articles: data,
-      },
+      status: 'success',
+      list: data,
     });
   } catch (error) {
     next(error);

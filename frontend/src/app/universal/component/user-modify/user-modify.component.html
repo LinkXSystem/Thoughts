@@ -1,0 +1,22 @@
+<section class="container">
+  <i class="linksystem-notes" aria-hidden="true" (click)="showmodal()"></i>
+  <nz-modal class="modal" [nzVisible]="isVisible" [nzTitle]="'信息设置'" [nzWidth]="450" [nzContent]="modalContent" (nzOnCancel)="showmodal()">
+    <ng-template #modalContent>
+      <form>
+        <div class="item input-item">
+          <span>昵称</span>
+          <input type="email" [(ngModel)]="nickname" name="email" required />
+        </div>
+        <div class="item input-item">
+          <span>职位</span>
+          <input type="email" [(ngModel)]="position" name="email" required />
+        </div>
+        <div class="item textarea-item">
+          <span>简介</span>
+          <textarea [(ngModel)]="description" name="description"></textarea>
+        </div>
+        <button type="button" (click)="backflow()">Update</button>
+      </form>
+    </ng-template>
+  </nz-modal>
+</section>

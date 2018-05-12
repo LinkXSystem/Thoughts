@@ -30,4 +30,26 @@ export class GetService {
     const { client } = this;
     return client.get(`/api/v1/column/${identify}`);
   }
+
+  notices(options = {}): Observable<any> {
+    const { client } = this;
+
+    return client.post('/api/v1/notice', options).pipe(retry(3));
+  }
+
+  notice(): Observable<any> {
+    const { client } = this;
+    return client.get(`/api/v1/notice`);
+  }
+
+  footnotes(options = {}): Observable<any> {
+    const { client } = this;
+
+    return client.post('/api/v1/footnote', options).pipe(retry(3));
+  }
+
+  footnote(): Observable<any> {
+    const { client } = this;
+    return client.get(`/api/v1/footnote`);
+  }
 }

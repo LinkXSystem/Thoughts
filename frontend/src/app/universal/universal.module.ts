@@ -19,9 +19,11 @@ import { ColumnItemComponent } from './component/list/column-item.component';
 
 import { MarkdownPipe } from './pipe/markdown.pipe';
 import { MarkdownDecodePipe } from './pipe/markdown-decode.pipe';
+import { MomentPipe } from './pipe/moment.pipe';
 
 import { ListDirective } from './component/list/list.directive';
 import { LoadingComponent } from './component/loading/loading.component';
+import { UserModifyComponent } from './component/user-modify/user-modify.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +38,13 @@ import { LoadingComponent } from './component/loading/loading.component';
     NavbarComponent,
     SearchComponent,
     UserDetailComponent,
+    LoadingComponent,
+    UserModifyComponent,
+
+    MomentPipe,
     MarkdownPipe,
     MarkdownDecodePipe,
     ListDirective,
-    LoadingComponent,
   ],
   exports: [
     ArticleViewComponent,
@@ -52,6 +57,8 @@ import { LoadingComponent } from './component/loading/loading.component';
     SearchComponent,
     UserDetailComponent,
     LoadingComponent,
+    UserModifyComponent,
+    MomentPipe,
     MarkdownPipe,
     MarkdownDecodePipe,
   ],

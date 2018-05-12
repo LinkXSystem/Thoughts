@@ -6,6 +6,7 @@ import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { UndefinedComponent } from './pages/undefined/undefined.component';
+import { ColumnDetailComponent } from './pages/column-detail/column-detail.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'article/:identify',
     component: ArticleComponent,
+  },
+  {
+    path: 'column-detail/:identify',
+    component: ColumnDetailComponent,
   },
   {
     path: 'user-detail',

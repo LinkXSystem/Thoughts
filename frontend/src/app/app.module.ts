@@ -31,6 +31,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { AuthReducer } from './redux/auth/auth.reducer';
 import { ArticleReducer } from './redux/article/article.reducer';
+import { ColumnDetailComponent } from './pages/column-detail/column-detail.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ArticleReducer } from './redux/article/article.reducer';
     UserComponent,
     UndefinedComponent,
     ProjectComponent,
+    ColumnDetailComponent,
   ],
   imports: [
     BrowserModule,

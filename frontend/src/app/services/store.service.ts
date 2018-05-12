@@ -9,21 +9,6 @@ import { retry } from 'rxjs/operators';
 export class StoreService {
   constructor(private client: HttpClient) {}
 
-  article(data) {
-    const { client } = this;
-    client
-      .post('/storage/article', data)
-      .pipe(retry(3))
-      .subscribe(
-        res => {
-          console.log('====================================');
-          console.log(res);
-          console.log('====================================');
-        },
-        err => {},
-      );
-  }
-
   store(type, data): Observable<any> {
     const { client } = this;
 
