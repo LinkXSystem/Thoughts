@@ -1,32 +1,29 @@
 <div nz-row [nzGutter]="10">
-  <section class="project" nz-col [nzSpan]="18">
-    <header class="title">
-      <h3>GITHUB Project / GITHUB 项目</h3>
-    </header>
+  <section nz-col [nzSpan]="18">
+    <app-user-detail [user]="user"></app-user-detail>
+    <section class="project">
+      <header class="title">
+        <h3>GITHUB Project / GITHUB 项目</h3>
+      </header>
 
-    <div class="project-list">
-      <nz-card style="width:50%;">
-        <ng-template #title>
-        </ng-template>
-        <ng-template #extra>
-          <a>More</a>
-        </ng-template>
-        <ng-template #body>
-        </ng-template>
-      </nz-card>
-      <nz-card style="width:50%;">
-        <ng-template #title>
-        </ng-template>
-        <ng-template #extra>
-          <a>More</a>
-        </ng-template>
-        <ng-template #body>
-        </ng-template>
-      </nz-card>
-    </div>
+      <div class="project-list">
+        <nz-card *ngFor="let item of list" style="width:50%;" [nzNoHovering]="true">
+          <ng-template #title>
+            {{item.name}}
+          </ng-template>
+          <ng-template #extra>
+            <a href="{{item.html_url}}">
+              <i class="anticon anticon-link"></i>
+            </a>
+          </ng-template>
+          <ng-template #body>
+            {{item.description}}
+          </ng-template>
+        </nz-card>
+      </div>
+    </section>
   </section>
   <div nz-col [nzSpan]="6">
-    <app-login-status [disabled]="disabled" (login)="login($event)"></app-login-status>
     <app-search></app-search>
     <app-certificate></app-certificate>
   </div>

@@ -48,6 +48,25 @@ router.post('/column', async (req, res, next) => {
 });
 
 /**
+ * @description 获取笔记
+ */
+router.post('/note', async (req, res, next) => {
+  try {
+    const term = Object.assign({}, req.body);
+    const { Note } = mongo.entity;
+
+    const data = await Note.find(term, { _id: false, __v: false });
+
+    return res.json({
+      status: 'success',
+      list: data,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @description 获取注脚
  */
 router.post('/footnote', async (req, res, next) => {

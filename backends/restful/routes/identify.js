@@ -15,7 +15,14 @@ router.get('/resume', async (req, res, next) => {
 
     const data = await User.findOne(
       {},
-      { _id: false, __v: false, register: false, password: false },
+      {
+        _id: false,
+        __v: false,
+        identify: false,
+        register: false,
+        password: false,
+        fingerprint: false,
+      },
     );
 
     return res.json({
@@ -91,6 +98,54 @@ router.get('/column/:identify', async (req, res, next) => {
     res.json({
       status: 'success',
       data,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/note/:identify', async (req, res, next) => {
+  try {
+    const { identify } = req.params;
+
+    const { Note } = mongo.entity;
+
+    const data = await Note.findOne(
+      {
+        identify,
+      },
+      { _id: false, __v: false },
+    );
+
+    res.json({
+      status: 'success',
+      data,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
+ * @description 专栏选择器
+ */
+router.get('/simple/column', async (req, res, next) => {
+  try {
+    const { Column } = mongo.entity;
+
+    const data = await Column.find(
+      {},
+      {
+        _id: false,
+        date: false,
+        description: false,
+        __v: false,
+      },
+    );
+
+    res.json({
+      status: 'success',
+      list: data,
     });
   } catch (error) {
     next(error);

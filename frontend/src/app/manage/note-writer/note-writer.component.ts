@@ -3,7 +3,6 @@ import { Message } from '../../common/message';
 import { StoreService } from '../../services/store.service';
 
 import { NzNotificationService } from 'ng-zorro-antd';
-import { FunctionService } from '../../services/function.service';
 
 @Component({
   selector: 'app-note-writer',
@@ -11,30 +10,18 @@ import { FunctionService } from '../../services/function.service';
   styleUrls: ['./note-writer.component.scss'],
 })
 export class NoteWriterComponent implements OnInit {
-  select;
-
-  options = [];
-
   constructor(
-    private action: FunctionService,
     private service: StoreService,
     private _notification: NzNotificationService,
   ) {}
 
-  ngOnInit() {
-    this.action.getColumnName().subscribe(res => {
-      console.log('====================================');
-      console.log(res);
-      console.log('====================================');
-      this.options = res.list;
-    });
-  }
+  ngOnInit() {}
 
   store(message: Message) {
     const { status, data } = message;
     switch (status) {
       case 'article':
-        this.article(Object.assign({}, message.data, { column: this.select }));
+        this.note(Object.assign({}, message.data));
         break;
       default:
         console.log('====================================');
@@ -43,9 +30,9 @@ export class NoteWriterComponent implements OnInit {
     }
   }
 
-  article(data) {
-    this.service.store('article', data).subscribe(res => {
-      this._notification.create('info', '消息', '文章创建成功');
+  note(data) {
+    this.service.store('note', data).subscribe(res => {
+      this._notification.create('info', '消息', '笔记创建成功');
     });
   }
 }

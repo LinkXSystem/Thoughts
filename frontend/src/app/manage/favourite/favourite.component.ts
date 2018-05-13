@@ -3,6 +3,7 @@ import { GetService } from '../../services/get.service';
 import { ItemPropType } from '../../universal/component/list/item-proptypes';
 import { ArticleItemComponent } from '../../universal/component/list/article-item.component';
 import { ColumnItemComponent } from '../../universal/component/list/column-item.component';
+import { NoteItemComponent } from '../../universal/component/list/note-item.component';
 
 @Component({
   selector: 'app-favourite',
@@ -18,6 +19,11 @@ export class FavouriteComponent implements OnInit {
     },
     {
       name: '专栏',
+      data: [],
+      loading: true,
+    },
+    {
+      name: '笔记',
       data: [],
       loading: true,
     },
@@ -37,10 +43,10 @@ export class FavouriteComponent implements OnInit {
       case '文章':
         this.getColumnList();
         return;
+      case '笔记':
+        this.getNoteList();
+        this;
     }
-    console.log('====================================');
-    console.log(tab);
-    console.log('====================================');
   }
 
   getArticleList() {
@@ -81,6 +87,27 @@ export class FavouriteComponent implements OnInit {
           href: `/control/column-editor/${item.identify}`,
         });
         return new ItemPropType(ColumnItemComponent, item);
+      });
+    });
+  }
+
+  getNoteList() {
+    const self = this;
+
+    if (self.tabs[2].data.length != 0) {
+      return;
+    }
+
+    self.service.notes().subscribe(res => {
+      self.tabs[2].loading = false;
+
+      const { list } = res;
+
+      self.tabs[2].data = list.map(item => {
+        item = Object.assign({}, item, {
+          href: `/control/note-editor/${item.identify}`,
+        });
+        return new ItemPropType(NoteItemComponent, item);
       });
     });
   }

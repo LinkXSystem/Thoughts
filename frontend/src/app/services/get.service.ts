@@ -9,6 +9,12 @@ import { retry } from 'rxjs/operators';
 export class GetService {
   constructor(private client: HttpClient) {}
 
+  resume(): Observable<any> {
+    const { client } = this;
+
+    return client.get('/api/v1/resume').pipe(retry(3));
+  }
+
   articles(options = {}): Observable<any> {
     const { client } = this;
 
@@ -29,6 +35,17 @@ export class GetService {
   column(identify): Observable<any> {
     const { client } = this;
     return client.get(`/api/v1/column/${identify}`);
+  }
+
+  notes(options = {}): Observable<any> {
+    const { client } = this;
+
+    return client.post('/api/v1/note', options).pipe(retry(3));
+  }
+
+  note(identify): Observable<any> {
+    const { client } = this;
+    return client.get(`/api/v1/note/${identify}`);
   }
 
   notices(options = {}): Observable<any> {

@@ -16,6 +16,7 @@ import { UserDetailComponent } from './component/user-detail/user-detail.compone
 
 import { ArticleItemComponent } from './component/list/article-item.component';
 import { ColumnItemComponent } from './component/list/column-item.component';
+import { NoteItemComponent } from './component/list/note-item.component';
 
 import { MarkdownPipe } from './pipe/markdown.pipe';
 import { MarkdownDecodePipe } from './pipe/markdown-decode.pipe';
@@ -34,6 +35,7 @@ import { UserModifyComponent } from './component/user-modify/user-modify.compone
     ListComponent,
     ArticleItemComponent,
     ColumnItemComponent,
+    NoteItemComponent,
     LoginStatusComponent,
     NavbarComponent,
     SearchComponent,
@@ -62,7 +64,11 @@ import { UserModifyComponent } from './component/user-modify/user-modify.compone
     MarkdownPipe,
     MarkdownDecodePipe,
   ],
-  entryComponents: [ArticleItemComponent, ColumnItemComponent],
+  entryComponents: [
+    ArticleItemComponent,
+    ColumnItemComponent,
+    NoteItemComponent,
+  ],
   imports: [CommonModule, FormsModule, RouterModule, NgZorroAntdModule],
 })
 export class UniversalModule {}

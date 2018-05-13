@@ -22,13 +22,29 @@ router.delete('/article/:identify', async (req, res, next) => {
   }
 });
 
-router.delete('column/:identify', async (req, res, next) => {
+router.delete('/column/:identify', async (req, res, next) => {
   try {
     const { identify } = req.params;
 
     const { Column } = mongo.entity;
 
     await Article.remove({ identify });
+
+    res.json({
+      status: 'success',
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete('/note/:identify', async (req, res, next) => {
+  try {
+    const { identify } = req.params;
+
+    const { Note } = mongo.entity;
+
+    await Note.remove({ identify });
 
     res.json({
       status: 'success',

@@ -9,10 +9,26 @@
     <ng-template #modalContent>
       <form>
         <div class="item input-item">
-          <span>GITHUB地址</span>
-          <input type="email" [(ngModel)]="username" name="username" required />
+          <span>Profile地址</span>
+          <input type="email" [(ngModel)]="url" name="url" (ngModelChange)="transfer($event)" required />
         </div>
       </form>
+      <div *ngIf="github.name" class="user-info">
+        <div class="info">
+          <img src="{{github.avatar_url}}" alt="">
+          <div>
+            <span>{{github.name}}</span>
+            <span>
+              <i class="anticon anticon-dot-chart"></i>
+              {{github.public_repos}}
+            </span>
+            <span>{{github.bio}}</span>
+          </div>
+        </div>
+        <div style="font-size: 1.5em;" (click)="backflow()">
+          <i class="anticon anticon-eye"></i>
+        </div>
+      </div>
     </ng-template>
   </nz-modal>
 </section>

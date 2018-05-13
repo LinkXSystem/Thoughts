@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
   data: Router[] = [
     new Router('/blog', '博客'),
     new Router('/column', '专栏'),
+    new Router('/note', '笔记'),
     new Router('/project', '项目'),
-    new Router('/user-detail', '简历'),
   ];
 
   constructor(private service: AuthService, private http: HttpClient) {}

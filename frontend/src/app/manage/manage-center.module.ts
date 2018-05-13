@@ -16,6 +16,7 @@ import { ArticleEditorComponent } from './article-editor/article-editor.componen
 import { ColumnEditorComponent } from './column-editor/column-editor.component';
 import { ArticleWriterComponent } from './article-writer/article-writer.component';
 import { NoteWriterComponent } from './note-writer/note-writer.component';
+import { NoteEditorComponent } from './note-editor/note-editor.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NoteWriterComponent } from './note-writer/note-writer.component';
     ColumnEditorComponent,
     ArticleWriterComponent,
     NoteWriterComponent,
+    NoteEditorComponent,
   ],
   imports: [
     CommonModule,

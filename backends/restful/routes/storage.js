@@ -77,6 +77,41 @@ router.post('/draft', async (req, res, next) => {
 });
 
 /**
+ * @description 存储笔记
+ */
+router.post('/note', async (req, res, next) => {
+  try {
+    const obj = req.body;
+
+    if (object.isEmpty(obj)) {
+      throw utils.error(404, 'verify', 'the object of data is empty');
+    }
+
+    if (!object.isComplete(obj, ['title', 'icons', 'content'])) {
+      throw utils.error(404, 'verify', 'the object of data is not satisfiable');
+    }
+
+    const cache = Object.assign(
+      {
+        identify: uuid(),
+        date: new Date(),
+      },
+      req.body,
+    );
+    const { Note } = mongo.entity;
+
+    const data = await Note.create(cache);
+
+    res.json({
+      state: 'success',
+      message: '数据存储成功',
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @description 存储专栏
  */
 router.post('/column', async (req, res, next) => {

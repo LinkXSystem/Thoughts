@@ -9,6 +9,7 @@ import { ColumnEditorComponent } from './column-editor/column-editor.component';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
 import { ArticleWriterComponent } from './article-writer/article-writer.component';
 
+import { NoteEditorComponent } from './note-editor/note-editor.component';
 import { NoteWriterComponent } from './note-writer/note-writer.component';
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'article-writer/:identify',
         component: ArticleWriterComponent,
+      },
+      {
+        path: 'note-editor/:identify',
+        component: NoteEditorComponent,
       },
       {
         path: 'note-writer/:identify',

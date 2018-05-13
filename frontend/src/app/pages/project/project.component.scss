@@ -1,6 +1,8 @@
 @import '../../../styles/function.scss';
 
 .project {
+  margin-top: 0.5em;
+
   .title {
     @include container;
 
@@ -14,4 +16,8 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+}
+
+:host ::ng-deep .ant-card {
+  margin-bottom: 0.5em;
 }
