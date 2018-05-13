@@ -27,6 +27,7 @@ import { AuthService } from './services/auth.service';
 import { DeleteService } from './services/delete.service';
 import { UpdateService } from './services/update.service';
 import { UserService } from './services/user.service';
+import { FunctionService } from './services/function.service';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -69,6 +70,7 @@ import { ColumnDetailComponent } from './pages/column-detail/column-detail.compo
     DeleteService,
     UpdateService,
     UserService,
+    FunctionService,
   ],
   bootstrap: [AppComponent],
 })

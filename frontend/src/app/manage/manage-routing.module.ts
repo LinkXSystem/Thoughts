@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ControlerComponent } from './controler/controler.component';
 import { SettingComponent } from './setting/setting.component';
-import { WritingComponent } from './writing/writing.component';
 import { TypeEditorComponent } from './type-editor/type-editor.component';
 import { ColumnEditorComponent } from './column-editor/column-editor.component';
 
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
+import { ArticleWriterComponent } from './article-writer/article-writer.component';
+
+import { NoteWriterComponent } from './note-writer/note-writer.component';
 
 const routes: Routes = [
   {
@@ -23,10 +25,10 @@ const routes: Routes = [
         path: 'setting',
         component: SettingComponent,
       },
-      {
-        path: 'writing',
-        component: WritingComponent,
-      },
+      // {
+      //   path: 'writing',
+      //   component: WritingComponent,
+      // },
       {
         path: 'type/:type',
         component: TypeEditorComponent,
@@ -34,6 +36,14 @@ const routes: Routes = [
       {
         path: 'article-editor/:identify',
         component: ArticleEditorComponent,
+      },
+      {
+        path: 'article-writer/:identify',
+        component: ArticleWriterComponent,
+      },
+      {
+        path: 'note-writer/:identify',
+        component: NoteWriterComponent,
       },
       {
         path: 'column-editor/:identify',

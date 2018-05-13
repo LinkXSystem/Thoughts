@@ -10,6 +10,8 @@ import { NzNotificationService } from 'ng-zorro-antd';
   styleUrls: ['./article-editor.component.scss'],
 })
 export class ArticleEditorComponent implements OnInit {
+  identify = '';
+
   data: any;
 
   constructor(
@@ -23,6 +25,7 @@ export class ArticleEditorComponent implements OnInit {
   ngOnInit() {
     const identify = this.route.snapshot.paramMap.get('identify');
 
+    this.identify = identify;
     const self = this;
 
     self.source.article(identify).subscribe(res => {

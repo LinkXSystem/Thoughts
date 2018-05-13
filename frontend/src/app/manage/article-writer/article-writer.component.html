@@ -1,0 +1,7 @@
+<section>
+  <nz-select class="select-item" style="width: 100%;" nzAllowClear [nzPlaceHolder]="'选择所属专栏'" [(ngModel)]="select" nzShowSearch>
+    <nz-option *ngFor="let option of options" [nzLabel]="option.title" [nzValue]="option.identify" [nzDisabled]="option.disabled">
+    </nz-option>
+  </nz-select>
+  <app-editor (feedback)="store($event)"></app-editor>
+</section>

@@ -9,6 +9,9 @@ import { UpdateService } from '../../services/update.service';
 
 import { Base64 } from 'js-base64';
 
+import { ItemPropType } from '../../universal/component/list/item-proptypes';
+import { ArticleItemComponent } from '../../universal/component/list/article-item.component';
+
 @Component({
   selector: 'app-column-editor',
   templateUrl: './column-editor.component.html',
@@ -23,6 +26,8 @@ export class ColumnEditorComponent implements OnInit {
     title: '',
     description: '',
   };
+
+  list: ItemPropType[] = [];
 
   constructor(
     private service: GetService,
@@ -44,6 +49,21 @@ export class ColumnEditorComponent implements OnInit {
         const { data } = res;
         self.data = Object.assign({}, data);
       });
+
+      self.service
+        .articles({
+          column: identify,
+        })
+        .subscribe(res => {
+          const { list } = res;
+
+          self.list = list.map(item => {
+            item = Object.assign({}, item, {
+              href: `/control/article-editor/${item.identify}`,
+            });
+            return new ItemPropType(ArticleItemComponent, item);
+          });
+        });
     }
   }
 

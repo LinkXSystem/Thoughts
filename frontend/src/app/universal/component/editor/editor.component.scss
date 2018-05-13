@@ -151,6 +151,10 @@
     transition: all 0.5s;
   }
 
+  textarea:focus {
+    outline: 0;
+  }
+
   .markdown {
     width: 50%;
   }

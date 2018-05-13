@@ -1,0 +1,13 @@
+@import '../../../styles/function.scss';
+
+.select-item {
+  @include container;
+
+  border-radius: 2px;
+}
+
+:host ::ng-deep .ant-select-selection {
+  border: 0px;
+
+  outline: 0px;
+}

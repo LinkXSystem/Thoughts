@@ -1,0 +1,6 @@
+@import '../../../styles/function.scss';
+blockquote {
+  @include container;
+
+  padding: 0.5em;
+}
