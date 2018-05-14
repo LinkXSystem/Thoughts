@@ -1,0 +1,8 @@
+{
+    "apps": [{
+        "name": "storage",
+        "script": "bin/www",
+        "exec_mode": "cluster_mode",
+        "watch": true
+    }]
+}

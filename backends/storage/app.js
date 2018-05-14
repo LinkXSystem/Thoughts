@@ -6,7 +6,10 @@ const utils = require('./modules/utils/error');
 
 const app = new express();
 
-const account = require('./routes/account');
+// 日志处理
+const log = global.log4js.getLogger('error');
+
+// const account = require('./routes/account');
 const seven = require('./routes/seven');
 
 app.disable('x-powered-by');
@@ -30,8 +33,8 @@ app.use(
   }),
 );
 
-app.use('/api/v1/storage', account);
-app.use('/api/v1/seven', seven);
+// app.use('/api/v1/storage', account);
+app.use('/api/v1/cloud', seven);
 
 app.use((req, res, next) => {
   next(utils.error(404, 'verify', 'server system rejected the reaction'));
