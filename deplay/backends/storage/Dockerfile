@@ -10,7 +10,7 @@ RUN npm install pm2 -g
 
 RUN git clone https://github.com/LinkXSystem/Thoughts.git
 
-RUN cd backends/storage/
+WORKDIR /Thoughts/backends/storage
 
 RUN npm install
 

@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bin/www",
-    "dev": "node-dev bin/www",
-    // "pro": "pm2 start"
+    "dev": "node-dev bin/www"
   },
   "author": "",
   "license": "ISC",
