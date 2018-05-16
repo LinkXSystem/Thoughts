@@ -14,6 +14,6 @@ WORKDIR /Thoughts/backends/restful
 
 RUN npm install
 
-EXPOSE 2020
+EXPOSE 2018
 
-ENTRYPOINT [ "pm2 start deploy.json" ]
+ENTRYPOINT [ "pm2", "start", "deploy.json", "--no-daemon" ]
