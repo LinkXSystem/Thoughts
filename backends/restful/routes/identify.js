@@ -44,16 +44,19 @@ router.get('/account', async (req, res, next) => {
 
     const { Account } = mongo.entity;
 
-    const data = await Account.findOne(
+    const data = await Account.find(
       {
-        name: name,
+        type: 'visitor',
+        name: req.query.name,
       },
       { _id: false, __v: false },
-    );
+    ).sort({
+      date: -1,
+    });
 
     res.json({
       status: 'success',
-      data,
+      data: data[0],
     });
   } catch (error) {
     next(error);
@@ -156,8 +159,8 @@ router.get('/notice', async (req, res, next) => {
   try {
     const { Notice } = mongo.entity;
 
-    const data = await Notice.find({ _id: false, __v: false }).sort({
-      date: 1,
+    const data = await Notice.find({}, { _id: false, __v: false }).sort({
+      date: -1,
     });
 
     res.json({
@@ -173,8 +176,8 @@ router.get('/footnote', async (req, res, next) => {
   try {
     const { Footnote } = mongo.entity;
 
-    const data = await Footnote.find({ _id: false, __v: false }).sort({
-      date: 1,
+    const data = await Footnote.find({}, { _id: false, __v: false }).sort({
+      date: -1,
     });
 
     res.json({

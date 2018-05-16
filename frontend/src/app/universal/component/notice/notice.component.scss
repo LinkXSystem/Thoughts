@@ -1,0 +1,25 @@
+@import '../../../../styles/function.scss';
+
+.notices {
+  @include container;
+
+  header {
+    padding: 0.5em 0.5em;
+  }
+
+  .success {
+    border: 5px solid rgba(183, 235, 143, 1);
+  }
+
+  .info {
+    border-right: 5px solid rgba(145, 213, 255, 1);
+  }
+
+  .warning {
+    border-right: 5px solid rgba(255, 229, 143, 1);
+  }
+
+  .error {
+    border-right: 5px solid rgba(255, 163, 158, 1);
+  }
+}

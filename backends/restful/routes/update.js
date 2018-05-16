@@ -12,10 +12,6 @@ router.post('/user', async (req, res, next) => {
 
     const { User } = mongo.entity;
 
-    console.log('====================================');
-    console.log(identify, obj);
-    console.log('====================================');
-
     delete obj['identify'];
 
     const data = await User.update({ identify }, obj, { multi: true });
@@ -57,6 +53,25 @@ router.post('/column', async (req, res, next) => {
     delete obj['identify'];
 
     const data = await Column.update({ identify }, obj, { multi: true });
+
+    res.json({
+      status: 'success',
+      message: '更新成功',
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post('/note', async (req, res, next) => {
+  try {
+    const { identify } = (obj = req.body);
+
+    const { Note } = mongo.entity;
+
+    delete obj['identify'];
+
+    const data = await Note.update({ identify }, obj, { multi: true });
 
     res.json({
       status: 'success',

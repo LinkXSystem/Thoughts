@@ -1,5 +1,10 @@
 @import '../../../styles/function.scss';
 
+.github-info {
+  @include container;
+  margin-top: 0.5em;
+}
+
 .project {
   margin-top: 0.5em;
 
@@ -20,4 +25,5 @@
 
 :host ::ng-deep .ant-card {
   margin-bottom: 0.5em;
+  height: 225px;
 }

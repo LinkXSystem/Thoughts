@@ -11,6 +11,7 @@ import { Base64 } from 'js-base64';
 
 import { ItemPropType } from '../../universal/component/list/item-proptypes';
 import { ArticleItemComponent } from '../../universal/component/list/article-item.component';
+import { DeleteService } from '../../services/delete.service';
 
 @Component({
   selector: 'app-column-editor',
@@ -20,7 +21,9 @@ import { ArticleItemComponent } from '../../universal/component/list/article-ite
 export class ColumnEditorComponent implements OnInit {
   status: boolean = true;
 
-  html: string = '';
+  identify = '';
+
+  html = '';
 
   data = {
     title: '',
@@ -30,9 +33,10 @@ export class ColumnEditorComponent implements OnInit {
   list: ItemPropType[] = [];
 
   constructor(
-    private service: GetService,
-    private modify: UpdateService,
     private action: StoreService,
+    private service: GetService,
+    private _delete: DeleteService,
+    private _update: UpdateService,
     private route: ActivatedRoute,
     private router: Router,
     private _notification: NzNotificationService,
@@ -45,9 +49,13 @@ export class ColumnEditorComponent implements OnInit {
 
     if (identify !== 'column-design') {
       self.status = false;
+
+      self.identify = identify;
+
       self.service.column(identify).subscribe(res => {
         const { data } = res;
         self.data = Object.assign({}, data);
+        self.html = Base64.decode(data.description);
       });
 
       self.service
@@ -88,8 +96,15 @@ export class ColumnEditorComponent implements OnInit {
   }
 
   update() {
-    this.modify.update('column', this.data).subscribe(res => {
+    this._update.update('column', this.data).subscribe(res => {
       this._notification.create('info', '消息', '专栏更新成功');
     });
+  }
+
+  remove() {
+    this._notification.create('info', '消息', '删除成功, 将在 10 秒后跳转');
+    setTimeout(() => {
+      this.router.navigate(['/control']);
+    }, 10000);
   }
 }

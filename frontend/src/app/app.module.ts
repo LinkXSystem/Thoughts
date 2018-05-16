@@ -29,6 +29,7 @@ import { DeleteService } from './services/delete.service';
 import { UpdateService } from './services/update.service';
 import { UserService } from './services/user.service';
 import { FunctionService } from './services/function.service';
+import { SearchService } from './services/search.service';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -73,6 +74,7 @@ import { NoteDetailComponent } from './pages/note-detail/note-detail.component';
     UpdateService,
     UserService,
     FunctionService,
+    SearchService,
   ],
   bootstrap: [AppComponent],
 })

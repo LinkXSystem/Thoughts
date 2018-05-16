@@ -5,6 +5,8 @@ import {
   ViewChild,
   ComponentFactoryResolver,
   AfterViewInit,
+  OnChanges,
+  SimpleChange,
 } from '@angular/core';
 import { ItemPropType } from './item-proptypes';
 import { ListDirective } from './list.directive';
@@ -15,7 +17,7 @@ import { ItemComponent } from './item-interface.component';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit, AfterViewInit {
+export class ListComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() list: ItemPropType[];
 
   @ViewChild(ListDirective) container: ListDirective;
@@ -23,21 +25,27 @@ export class ListComponent implements OnInit, AfterViewInit {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
-    this.build();
+    // this.build();
   }
 
-  ngOnChanges() {
-    this.build();
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    this.container.viewContainerRef.clear();
+
+    let list = changes.list.currentValue;
+
+    if (!list) {
+      list = [];
+    }
+
+    this.build(list);
   }
 
   ngAfterViewInit() {
     // this.build();
   }
 
-  build() {
-    if (!this.list) return;
-
-    this.list.forEach(element => {
+  build(list) {
+    list.forEach(element => {
       const factory = this.componentFactoryResolver.resolveComponentFactory(
         element.component,
       );

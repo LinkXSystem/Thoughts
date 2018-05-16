@@ -11,6 +11,14 @@ import { GetService } from '../../services/get.service';
 export class NoteComponent implements OnInit {
   notes: ItemPropType[];
 
+  notice = {
+    content: '',
+  };
+
+  footnote = {
+    content: '',
+  };
+
   constructor(private sources: GetService) {}
 
   ngOnInit() {
@@ -23,6 +31,14 @@ export class NoteComponent implements OnInit {
         });
         return new ItemPropType(NoteItemComponent, item);
       });
+    });
+
+    self.sources.notice().subscribe(res => {
+      self.notice = res.data;
+    });
+
+    self.sources.footnote().subscribe(res => {
+      self.footnote = res.data;
     });
   }
 }

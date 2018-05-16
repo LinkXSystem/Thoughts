@@ -13,7 +13,7 @@
           <input type="email" [(ngModel)]="url" name="url" (ngModelChange)="transfer($event)" required />
         </div>
       </form>
-      <div *ngIf="github.name" class="user-info">
+      <div *ngIf="github.name" class="github-info">
         <div class="info">
           <img src="{{github.avatar_url}}" alt="">
           <div>

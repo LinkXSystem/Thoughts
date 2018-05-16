@@ -15,10 +15,16 @@ export class GetService {
     return client.get('/api/v1/resume').pipe(retry(3));
   }
 
+  account(name = 'github'): Observable<any> {
+    const { client } = this;
+
+    return client.get(`/api/v1/account?name=${name}`).pipe(retry(3));
+  }
+
   articles(options = {}): Observable<any> {
     const { client } = this;
 
-    return client.post('/api/v1/article', {}).pipe(retry(3));
+    return client.post('/api/v1/article', options).pipe(retry(3));
   }
 
   article(identify): Observable<any> {

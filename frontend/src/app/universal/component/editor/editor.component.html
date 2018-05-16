@@ -5,7 +5,7 @@
         <i class="linksystem-draft" aria-hidden="true"></i>
       </li>
       <li>
-        <i class="linksystem-save" aria-hidden="true" (click)="save()"></i>
+        <i class="linksystem-save" aria-hidden="true" (click)="store()"></i>
       </li>
     </ul>
     <i class="linksystem-app" aria-hidden="true"></i>
@@ -24,7 +24,7 @@
           <i class="anticon anticon-ellipsis" aria-hidden="true"></i>
         </li>
       </ul>
-      <input [(ngModel)]="type" name="type" type="text" placeholder="类型" />
+      <input [(ngModel)]="icons" name="icons" type="text" placeholder="类型" />
     </div>
   </div>
   <div class="markdown-editor ">
@@ -50,7 +50,7 @@
           <nz-modal [nzVisible]="isVisible " [nzTitle]=" '图片存储' " [nzContent]="modalContent " (nzOnCancel)="showmodal() ">
             <ng-template #modalContent>
               <nz-upload nzType="drag " [nzMultiple]="true " [nzLimit]="2 " nzAction="https://jsonplaceholder.typicode.com/posts/
-        " (nzChange)="handleChange($event) ">
+        " (nzChange)="upload($event) ">
                 <p class="ant-upload-drag-icon ">
                   <i class="anticon anticon-inbox "></i>
                 </p>
@@ -67,8 +67,7 @@
         </li>
       </ul>
     </div>
-    <textarea name="mark" id="mark" cols="30" rows="30" [ngModel]="data" (ngModelChange)="markdown($event)
-        " [@textarea]="status"></textarea>
+    <textarea name="mark" id="mark" cols="30" rows="30" [ngModel]="content" (ngModelChange)="markdown($event)" [@textarea]="status"></textarea>
     <div class="markdown " [innerHTML]="(html | markdown)" [@markdown]="status"></div>
     <hr />
   </div>

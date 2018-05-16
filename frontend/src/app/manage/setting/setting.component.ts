@@ -4,6 +4,7 @@ import { Message } from '../../common/message';
 import { UserService } from '../../services/user.service';
 
 import { NzNotificationService } from 'ng-zorro-antd';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-setting',
@@ -16,6 +17,7 @@ export class SettingComponent implements OnInit {
   };
 
   constructor(
+    private action: StoreService,
     private service: UserService,
     private _notification: NzNotificationService,
   ) {}
@@ -27,6 +29,19 @@ export class SettingComponent implements OnInit {
   }
 
   updateState(): void {}
+
+  github(message: Message) {
+    this.action
+      .store('account', {
+        type: 'visitor',
+        token: '',
+        name: 'github',
+        data: JSON.stringify(message.data),
+      })
+      .subscribe(res => {
+        this._notification.create('info', '消息', 'GITHUB更新成功');
+      });
+  }
 
   update(message: Message) {
     const { identify } = this.user;

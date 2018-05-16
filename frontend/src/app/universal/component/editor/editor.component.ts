@@ -1,4 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChange,
+} from '@angular/core';
 import {
   trigger,
   state,
@@ -8,6 +16,8 @@ import {
 } from '@angular/animations';
 import { Base64 } from 'js-base64';
 import { Message } from '../../../common/message';
+import { UploadFile } from 'ng-zorro-antd';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-editor',
@@ -50,18 +60,46 @@ import { Message } from '../../../common/message';
     ]),
   ],
 })
-export class EditorComponent implements OnInit {
+export class EditorComponent implements OnInit, OnChanges {
   @Output() feedback = new EventEmitter<Message>();
 
+  @Input() type = '';
+  @Input() data = {};
+
+  @Input() certificate = {};
+
   status: string = 'active';
-  html: string = '';
+
   title: string = '';
-  type: string = '';
+  icons: string = '';
+  html: string = '';
+  content: string = '';
+
   isVisible: boolean = false;
 
-  constructor() {}
+  constructor(private client: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const { client } = this;
+    // client.get('http://111.230.112.23:3000/api/v1/cloud/seven').subscribe(res => {
+    //   this.certificate = res;
+    //   console.log('====================================');
+    //   console.log(res);
+    //   console.log('====================================');
+    // });
+  }
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    const { icons, title, content } = changes.data.currentValue;
+
+    if (icons) {
+      this.icons = icons.join(' ');
+    }
+
+    this.title = title;
+    this.html = Base64.decode(content);
+    this.content = Base64.decode(content);
+  }
 
   markdown(content): void {
     this.html = content;
@@ -75,27 +113,34 @@ export class EditorComponent implements OnInit {
     this.isVisible = !this.isVisible;
   }
 
-  save() {
-    const { title, type, html } = this;
-    const icons = type.split(' ');
-    const content = Base64.encode(html);
+  store() {
+    console.log('====================================');
+    console.log(this.type);
+    console.log('====================================');
+    const { title, icons, html } = this;
     this.feedback.emit(
-      new Message('article', {
+      new Message(this.type, {
+        icons: icons.split(' '),
         title,
-        icons,
-        content,
+        content: Base64.encode(html),
       }),
     );
   }
 
   draft() {
-    const { title, type, html } = this;
-    this.feedback.emit(
-      new Message('draft', {
-        title,
-        type,
-        html,
-      }),
-    );
+    // const { title, type, html } = this;
+    // this.feedback.emit(
+    //   new Message('draft', {
+    //     title,
+    //     type,
+    //     html,
+    //   }),
+    // );
+  }
+
+  upload(info: { file: UploadFile }) {
+    console.log('====================================');
+    console.log(info);
+    console.log('====================================');
   }
 }

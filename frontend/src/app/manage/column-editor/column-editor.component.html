@@ -1,32 +1,59 @@
-<section class="container">
-  <div class="column">
-    <h2>{{data.title}}</h2>
-    <div class="markdown" [innerHTML]="(data.description | decode | markdown)"></div>
-    <button class="icon-button" (click)="build()">
-      <i *ngIf="status" class="anticon anticon-cloud-upload-o" style="font-size: 16px;"></i>
-      <i *ngIf="!status" class="anticon anticon-hourglass" style="font-size: 16px;"></i>
-    </button>
-  </div>
+<div nz-row [nzGutter]="10">
+  <div nz-col [nzSpan]="18">
+    <div *ngIf="!data" class="mock">
+      <img src="../../../assets/images/empty.png" alt="">
+      <span>
+        路由寻址中
+        <em>...</em>
+      </span>
+    </div>
 
-  <nz-input class="title" [(ngModel)]="data.title" [nzType]="'text'" [nzPlaceHolder]="'请输入专栏的标题'">
-    <ng-template #prefix>
-      <i class="anticon anticon-api" aria-hidden="true"></i>
-    </ng-template>
-  </nz-input>
-
-  <div class="editor">
-    <textarea name="mark" [ngModel]="html" (ngModelChange)="transfer($event)"></textarea>
-  </div>
-
-  <nz-card nzNoHovering>
-    <ng-template #title>文章列表</ng-template>
-    <ng-template #extra>
-    </ng-template>
-    <ng-template #body>
-      <div *ngIf="!list.length" class="content loading">
-        <app-loading></app-loading>
+    <section class="container">
+      <div class="column">
+        <h2>{{data.title}}</h2>
+        <div class="markdown" [innerHTML]="(data.description | decode | markdown)"></div>
+        <button class="icon-button" (click)="build()">
+          <i *ngIf="status" class="anticon anticon-cloud-upload-o" style="font-size: 16px;"></i>
+          <i *ngIf="!status" class="anticon anticon-hourglass" style="font-size: 16px;"></i>
+        </button>
       </div>
-      <app-list [list]="list"></app-list>
-    </ng-template>
-  </nz-card>
-</section>
+
+      <nz-input class="title" [(ngModel)]="data.title" [nzType]="'text'" [nzPlaceHolder]="'请输入专栏的标题'">
+        <ng-template #prefix>
+          <i class="anticon anticon-api" aria-hidden="true"></i>
+        </ng-template>
+      </nz-input>
+
+      <div class="editor">
+        <textarea name="mark" [ngModel]="html" (ngModelChange)="transfer($event)"></textarea>
+      </div>
+
+      <nz-card nzNoHovering>
+        <ng-template #title>文章列表</ng-template>
+        <ng-template #extra>
+        </ng-template>
+        <ng-template #body>
+          <div *ngIf="!list.length" class="content loading">
+            <app-loading></app-loading>
+          </div>
+          <app-list [list]="list"></app-list>
+        </ng-template>
+      </nz-card>
+    </section>
+  </div>
+  <div nz-col [nzSpan]="6">
+    <ul class="function" *ngIf="identify">
+      <li>
+        <div style="color: rgba(240, 65, 52, 1);" (click)='remove()'>
+          <nz-card>
+            <ng-template #body>
+              <i class="anticon anticon-delete" aria-hidden="true"></i>
+              <span>删除</span>
+            </ng-template>
+          </nz-card>
+        </div>
+      </li>
+    </ul>
+    <app-search></app-search>
+  </div>
+</div>

@@ -3,5 +3,5 @@
     <nz-option *ngFor="let option of options" [nzLabel]="option.title" [nzValue]="option.identify" [nzDisabled]="option.disabled">
     </nz-option>
   </nz-select>
-  <app-editor (feedback)="store($event)"></app-editor>
+  <app-editor [type]="type" [data]="article" (feedback)="subscribe($event)"></app-editor>
 </section>

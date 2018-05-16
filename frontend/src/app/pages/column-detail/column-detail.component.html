@@ -1,18 +1,11 @@
-<section nz-row [nzGutter]="10">
-  <div nz-col [nzSpan]="16">
-    <div class="column">
-      <h2>{{data.title}}</h2>
-      <div class="markdown" [innerHTML]="(data.description | decode | markdown)"></div>
-    </div>
-    <blockquote>
-      <i class="anticon anticon-appstore"></i>
-      专栏文章
-    </blockquote>
-    <app-list [list]="list"></app-list>
+<section class="container">
+  <div class="column">
+    <h2>{{data.title}}</h2>
+    <div class="markdown" [innerHTML]="(data.description | decode | markdown)"></div>
   </div>
-
-  <div nz-col [nzSpan]="6">
-    <app-search></app-search>
-    <app-certificate></app-certificate>
-  </div>
+  <blockquote>
+    <i class="anticon anticon-appstore"></i>
+    专栏文章
+  </blockquote>
+  <app-list [list]="list"></app-list>
 </section>

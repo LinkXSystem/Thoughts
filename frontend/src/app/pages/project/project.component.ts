@@ -11,10 +11,12 @@ import { HttpClient } from '@angular/common/http';
 export class ProjectComponent implements OnInit {
   user = {};
 
+  info = {};
+
   list = [];
 
   gridStyle = {
-    width: '50%',
+    width: '100%',
   };
 
   constructor(private client: HttpClient, private service: GetService) {}
@@ -24,10 +26,17 @@ export class ProjectComponent implements OnInit {
       this.user = res.data;
     });
 
-    this.client
-      .get(`https://api.github.com/users/LinkXSystem/repos`)
-      .subscribe((res: any[]) => {
-        this.list = res;
-      });
+    this.service.account().subscribe(res => {
+      const { data } = res.data;
+      const obj = JSON.parse(data);
+
+      this.info = obj;
+
+      this.client
+        .get(`https://api.github.com/users/${obj.login}/repos`)
+        .subscribe((res: any[]) => {
+          this.list = res;
+        });
+    });
   }
 }

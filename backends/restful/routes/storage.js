@@ -9,6 +9,31 @@ const mongo = require('../modules/mongo');
 const object = require('../modules/utils/object');
 
 /**
+ * @description 存储账户
+ */
+router.post('/account', async (req, res, next) => {
+  try {
+    const cache = Object.assign(
+      {
+        identify: uuid(),
+        date: new Date(),
+      },
+      req.body,
+    );
+    const { Account } = mongo.entity;
+
+    const data = Account.create(cache);
+
+    res.json({
+      state: 'success',
+      message: '数据存储成功',
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @description 存储文章
  */
 router.post('/article', async (req, res, next) => {

@@ -34,6 +34,7 @@ router.post('/article', async (req, res, next) => {
 router.post('/column', async (req, res, next) => {
   try {
     const term = Object.assign({}, req.body);
+
     const { Column } = mongo.entity;
 
     const data = await Column.find(term, { _id: false, __v: false });

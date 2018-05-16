@@ -26,9 +26,19 @@ router.delete('/column/:identify', async (req, res, next) => {
   try {
     const { identify } = req.params;
 
-    const { Column } = mongo.entity;
+    const { Column, Article } = mongo.entity;
 
-    await Article.remove({ identify });
+    await Column.remove({ identify });
+
+    await Article.update(
+      {
+        column: identify,
+      },
+      {
+        column: '',
+      },
+      { multi: true },
+    );
 
     res.json({
       status: 'success',

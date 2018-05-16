@@ -3,7 +3,7 @@
     <ng-template #nzTabHeading style="background-color: rgba(255, 255, 255, 1);">
       {{tab.name}}
     </ng-template>
-    <div *ngIf="tab.loading" class="content loading">
+    <div *ngIf="!tab.data.length" class="content loading">
       <app-loading></app-loading>
     </div>
     <app-list [list]="tab.data"></app-list>

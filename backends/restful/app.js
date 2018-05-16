@@ -6,6 +6,7 @@ const utils = require('./modules/utils/error');
 
 const identify = require('./routes/identify');
 const list = require('./routes/list');
+const search = require('./routes/search');
 
 const authority = require('./routes/authority');
 
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // 处理数据访问
 app.use('/api/v1', identify);
 app.use('/api/v1', list);
+app.use('/api/v1/search', search);
 
 // 处理凭证
 // app.use(interceptor.verifytoken);

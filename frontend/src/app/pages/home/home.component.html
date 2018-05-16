@@ -3,8 +3,10 @@
     <app-list [list]="articles"></app-list>
   </div>
   <div nz-col [nzSpan]="6">
+    <app-notice [notice]="notice"></app-notice>
     <app-login-status [disabled]="disabled" (login)="login($event)"></app-login-status>
-    <app-search></app-search>
-    <app-certificate></app-certificate>
+    <app-search (search)="search($event)"></app-search>
+    <!-- <app-certificate></app-certificate> -->
+    <app-footnote [footnote]="footnote"></app-footnote>
   </div>
 </div>

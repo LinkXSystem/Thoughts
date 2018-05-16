@@ -25,6 +25,9 @@ import { MomentPipe } from './pipe/moment.pipe';
 import { ListDirective } from './component/list/list.directive';
 import { LoadingComponent } from './component/loading/loading.component';
 import { UserModifyComponent } from './component/user-modify/user-modify.component';
+import { NoticeComponent } from './component/notice/notice.component';
+import { FootnoteComponent } from './component/footnote/footnote.component';
+import { PortraitComponent } from './component/portrait/portrait.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { UserModifyComponent } from './component/user-modify/user-modify.compone
     MarkdownPipe,
     MarkdownDecodePipe,
     ListDirective,
+    NoticeComponent,
+    FootnoteComponent,
+    PortraitComponent,
   ],
   exports: [
     ArticleViewComponent,
@@ -60,6 +66,9 @@ import { UserModifyComponent } from './component/user-modify/user-modify.compone
     UserDetailComponent,
     LoadingComponent,
     UserModifyComponent,
+    NoticeComponent,
+    FootnoteComponent,
+
     MomentPipe,
     MarkdownPipe,
     MarkdownDecodePipe,

@@ -1,30 +1,38 @@
-<div nz-row [nzGutter]="10">
-  <section nz-col [nzSpan]="18">
-    <app-user-detail [user]="user"></app-user-detail>
-    <section class="project">
-      <header class="title">
-        <h3>GITHUB Project / GITHUB 项目</h3>
-      </header>
+<section class="container">
+  <app-user-detail [user]="user"></app-user-detail>
 
-      <div class="project-list">
-        <nz-card *ngFor="let item of list" style="width:50%;" [nzNoHovering]="true">
-          <ng-template #title>
-            {{item.name}}
-          </ng-template>
-          <ng-template #extra>
-            <a href="{{item.html_url}}">
-              <i class="anticon anticon-link"></i>
-            </a>
-          </ng-template>
-          <ng-template #body>
-            {{item.description}}
-          </ng-template>
-        </nz-card>
-      </div>
-    </section>
-  </section>
-  <div nz-col [nzSpan]="6">
-    <app-search></app-search>
-    <app-certificate></app-certificate>
+  <div class="github-info">
+
+    <div class="info">
+      <img src="{{info.avatar_url}}" alt="">
+      <span>{{info.name}}</span>
+      <span>
+        <i class="anticon anticon-dot-chart"></i>
+        {{info.public_repos}}
+      </span>
+      <span>{{info.bio}}</span>
+    </div>
   </div>
-</div>
+
+  <section class="project">
+    <header class="title">
+      <h3>GITHUB Project / GITHUB 项目</h3>
+    </header>
+
+    <div class="project-list">
+      <nz-card *ngFor="let item of list" style="width: 100%" [nzNoHovering]="true">
+        <ng-template #title>
+          {{item.name}}
+        </ng-template>
+        <ng-template #extra>
+          <a href="{{item.html_url}}">
+            <i class="anticon anticon-link"></i>
+          </a>
+        </ng-template>
+        <ng-template #body>
+          {{item.description}}
+        </ng-template>
+      </nz-card>
+    </div>
+  </section>
+</section>

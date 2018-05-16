@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
 
 @Injectable()
-export class UpdateService {
+export class SearchService {
   constructor(private client: HttpClient) {}
 
-  update(type, data): Observable<any> {
+  search(type, data): Observable<any> {
     const { client } = this;
 
-    const url = `/update/${type}`;
+    const url = `/api/v1/search/${type}`;
 
     return client.post(url, data).pipe(retry(3));
   }

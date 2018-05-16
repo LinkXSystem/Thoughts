@@ -11,6 +11,10 @@ import { GetService } from '../../services/get.service';
 export class ColumnComponent implements OnInit {
   data: ItemPropType[];
 
+  notice = {};
+
+  footnote = {};
+
   constructor(private service: GetService) {}
 
   ngOnInit() {
@@ -28,6 +32,14 @@ export class ColumnComponent implements OnInit {
 
         return new ItemPropType(ColumnItemComponent, item);
       });
+    });
+
+    service.notice().subscribe(res => {
+      self.notice = res.data;
+    });
+
+    service.footnote().subscribe(res => {
+      self.footnote = res.data;
     });
   }
 }
