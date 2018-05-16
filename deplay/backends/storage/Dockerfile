@@ -6,15 +6,15 @@ LABEL desecribe="cloud storage's dockerfile"
 
 RUN npm config set registry https://registry.npm.taobao.org
 
-RUN npm install pm2 -g
+RUN npm install -g @angular/cli
 
 RUN git clone https://github.com/LinkXSystem/Thoughts.git
 
-WORKDIR /Thoughts/backends/storage
+WORKDIR /Thoughts/frontend
 
 RUN npm install
 
-EXPOSE 2020
+EXPOSE 3000
 
-ENTRYPOINT [ "pm2 start deploy.json" ]
+ENTRYPOINT [ "npm", "start"]
 
