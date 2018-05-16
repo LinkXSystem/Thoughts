@@ -2,19 +2,18 @@ FROM node:latest
 
 LABEL author="linkasde_system@163.com"
 LABEL version="1.0.0"
-LABEL desecribe="cloud storage's dockerfile"
+LABEL desecribe="restful sever's dockerfile"
 
 RUN npm config set registry https://registry.npm.taobao.org
 
-RUN npm install -g @angular/cli
+RUN npm install pm2 -g
 
 RUN git clone https://github.com/LinkXSystem/Thoughts.git
 
-WORKDIR /Thoughts/frontend
+WORKDIR /Thoughts/backends/strage
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 2020
 
-ENTRYPOINT [ "npm", "start"]
-
+ENTRYPOINT [ "pm2", "start", "deploy.json", "--no-daemon" ]
