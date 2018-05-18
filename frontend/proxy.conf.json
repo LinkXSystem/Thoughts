@@ -1,29 +1,29 @@
 {
   "/api/*": {
-    "target": "http://localhost:2018"
+    "target": "http://111.230.112.23:2018"
   },
 
   "/auth/*": {
-    "target": "http://localhost:2018"
+    "target": "http://111.230.112.23:2018"
   },
 
   "/storage/*": {
-    "target": "http://localhost:2018"
+    "target": "http://111.230.112.23:2018"
   },
 
   "/obtain/*": {
-    "target": "http://localhost:2018"
+    "target": "http://111.230.112.23:2018"
   },
 
   "/update/*": {
-    "target": "http://localhost:2018"
+    "target": "http://111.230.112.23:2018"
   },
 
   "/delete/*": {
-    "target": "http://localhost:2018"
+    "target": "http://111.230.112.23:2018"
   },
 
   "/cloud/*": {
-    "target": "http://localhost:2020"
+    "target": "http://111.230.112.23:2020"
   }
 }
