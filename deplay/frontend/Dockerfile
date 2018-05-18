@@ -14,6 +14,6 @@ WORKDIR /Thoughts/frontend
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 2017
 
 ENTRYPOINT [ "npm", "start"]

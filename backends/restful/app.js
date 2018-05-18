@@ -25,7 +25,7 @@ const log = global.log4js.getLogger('error');
 app.disable('x-powered-by');
 
 //跨域配置
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'http://localhost:2017' }));
 
 app.use(
   global.log4js.connectLogger(global.log4js.getLogger('http'), {
