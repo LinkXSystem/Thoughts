@@ -1,3 +1,7 @@
-<p>
-  portrait works!
-</p>
+<section class="portrait">
+  <div>
+    <i class="anticon anticon-plus" (click)="trigger()"></i>
+    <img src="{{image}}" alt="" (click)="trigger()">
+    <input class="portrait" (change)="upload($event)" type="file" style="display: none">
+  </div>
+</section>

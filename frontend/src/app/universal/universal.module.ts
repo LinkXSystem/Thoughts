@@ -68,6 +68,7 @@ import { PortraitComponent } from './component/portrait/portrait.component';
     UserModifyComponent,
     NoticeComponent,
     FootnoteComponent,
+    PortraitComponent,
 
     MomentPipe,
     MarkdownPipe,

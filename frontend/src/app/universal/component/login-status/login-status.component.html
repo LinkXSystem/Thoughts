@@ -1,6 +1,6 @@
 <div class="login-status">
   <div class="point"></div>
-  <div class="bar" (click)="showmodal()"></div>
+  <div class="bar {{disabled ? 'disabled' : 'active'}}" (click)="showmodal()"></div>
   <nz-modal class="modal" [nzVisible]="isVisible" [nzTitle]="'系统登陆'" [nzWidth]="300" [nzContent]="modalContent" (nzOnCancel)="showmodal()">
     <ng-template #modalContent>
       <form>

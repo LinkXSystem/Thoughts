@@ -11,6 +11,7 @@ import { ColumnDetailComponent } from './pages/column-detail/column-detail.compo
 
 import { ProjectComponent } from './pages/project/project.component';
 import { UndefinedComponent } from './pages/undefined/undefined.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
   },
   {
     path: 'control',
+    canActivate: [AuthGuardService],
     loadChildren: 'app/manage/manage-center.module#ManageCenterModule',
   },
   { path: '**', component: UndefinedComponent },
@@ -55,7 +57,7 @@ const routes: Routes = [
 
 @NgModule({
   //{ enableTracing: true }
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class SystemRoutingModule {}

@@ -1,13 +1,16 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { NzNotificationService } from 'ng-zorro-antd';
+
 import { ItemPropType } from '../../universal/component/list/item-proptypes';
 import { ArticleItemComponent } from '../../universal/component/list/article-item.component';
 import { Store } from 'redux';
 import { element } from 'protractor';
 import { Message } from '../../common/message';
-import { LoginService } from '../../services/login.service';
 import { GetService } from '../../services/get.service';
 import { log } from 'util';
 import { SearchService } from '../../services/search.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -28,9 +31,11 @@ export class HomeComponent implements OnInit {
   disabled: boolean = false;
 
   constructor(
-    private service: LoginService,
-    private sources: GetService,
     private action: SearchService,
+    private auth: AuthService,
+    private sources: GetService,
+    private router: Router,
+    private _notification: NzNotificationService,
   ) {}
 
   ngOnInit() {
@@ -46,6 +51,8 @@ export class HomeComponent implements OnInit {
       });
     });
 
+    this.fingerprint();
+
     self.sources.notice().subscribe(res => {
       self.notice = res.data;
     });
@@ -55,10 +62,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  updateState(): void {}
-
   login(message: Message) {
-    this.service.login(message.data);
+    this.auth.login(message.data).subscribe(
+      res => {
+        window.sessionStorage.setItem('login', res.data.identify);
+        this.router.navigate(['/control']);
+      },
+      err => {
+        this._notification.create('error', '登录', '用户名或密码错误');
+      },
+    );
   }
 
   search(message: Message) {
@@ -78,5 +91,14 @@ export class HomeComponent implements OnInit {
           return new ItemPropType(ArticleItemComponent, item);
         });
       });
+  }
+
+  fingerprint() {
+    this.auth.grant().subscribe(
+      res => {
+        if (res.status === 'error') this.disabled = true;
+      },
+      err => {},
+    );
   }
 }

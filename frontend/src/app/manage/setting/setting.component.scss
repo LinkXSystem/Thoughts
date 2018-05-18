@@ -82,6 +82,14 @@
   }
 }
 
+.active {
+  color: #5cb85c;
+}
+
+.disabled {
+  color: #e13137;
+}
+
 :host ::ng-deep .ant-card-body {
   padding: 0.5em 0.5em;
 }

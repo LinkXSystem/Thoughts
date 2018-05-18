@@ -21,7 +21,6 @@ import { ProjectComponent } from './pages/project/project.component';
 import { ColumnDetailComponent } from './pages/column-detail/column-detail.component';
 import { NoteComponent } from './pages/note/note.component';
 
-import { LoginService } from './services/login.service';
 import { GetService } from './services/get.service';
 import { StoreService } from './services/store.service';
 import { AuthService } from './services/auth.service';
@@ -30,12 +29,14 @@ import { UpdateService } from './services/update.service';
 import { UserService } from './services/user.service';
 import { FunctionService } from './services/function.service';
 import { SearchService } from './services/search.service';
+import { CloudService } from './services/cloud.service';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { AuthReducer } from './redux/auth/auth.reducer';
 import { ArticleReducer } from './redux/article/article.reducer';
 import { NoteDetailComponent } from './pages/note-detail/note-detail.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -66,15 +67,17 @@ import { NoteDetailComponent } from './pages/note-detail/note-detail.component';
     }),
   ],
   providers: [
-    LoginService,
+    FunctionService,
     AuthService,
     GetService,
     StoreService,
     DeleteService,
     UpdateService,
     UserService,
-    FunctionService,
     SearchService,
+    AuthGuardService,
+
+    CloudService,
   ],
   bootstrap: [AppComponent],
 })

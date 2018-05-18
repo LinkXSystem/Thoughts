@@ -4,7 +4,8 @@
       <div style='background-image: url(http://img.hb.aicdn.com/b54eaea559df3c79543038a0eb506495c1635d0b1fade0-E4viRX);'></div>
       <fieldset>
         <legend>
-          <img src="https://pic4.zhimg.com/2178611728bab8ec024569e1ba2f81e9_im.jpg" alt="" />
+          <app-portrait [image]="user.portrait" [domain]="seven.domain" [zone]="seven.zone" [token]="seven.token" (portrait)="portrait($event)"></app-portrait>
+          <!-- <img src="https://pic4.zhimg.com/2178611728bab8ec024569e1ba2f81e9_im.jpg" alt="" /> -->
         </legend>
         <ul>
           <li>
@@ -40,6 +41,14 @@
   </div>
   <div nz-col [nzSpan]="6">
     <ul class="function">
+      <li class="{{user.fingerprint ? 'active' : 'disable'}}">
+        <nz-card (click)="fingerprint()">
+          <ng-template #body>
+            <i class="anticon anticon-api" aria-hidden="true"></i>
+            <span>指纹</span>
+          </ng-template>
+        </nz-card>
+      </li>
       <li>
         <a routerLink="/control/article-writer/article-design">
           <nz-card>
@@ -100,6 +109,16 @@
           <ng-template #body>
             <i class="linksystem-wechat" aria-hidden="true"></i>
             <span>WECHAT</span>
+          </ng-template>
+        </nz-card>
+      </li>
+    </ul>
+    <ul class="function">
+      <li>
+        <nz-card (click)="logout()">
+          <ng-template #body>
+            <i class="anticon anticon-logout"></i>
+            <span>注销</span>
           </ng-template>
         </nz-card>
       </li>

@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { Response } from './common/response';
 import { AuthService } from './services/auth.service';
 
+import Fingerprint2 = require('fingerprintjs2');
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,15 +27,8 @@ export class AppComponent implements OnInit {
   constructor(private service: AuthService, private http: HttpClient) {}
 
   ngOnInit() {
-    this.initial();
-    this.service.fingerprint().subscribe(res => {
-      console.log('====================================');
-      console.log(res);
-      console.log('====================================');
+    new Fingerprint2().get(result => {
+      sessionStorage.setItem('fingerprint', result);
     });
-  }
-
-  initial() {
-    const self = this;
   }
 }

@@ -21,5 +21,9 @@
 
   "/delete/*": {
     "target": "http://localhost:2018"
+  },
+
+  "/cloud/*": {
+    "target": "http://localhost:2020"
   }
 }

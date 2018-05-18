@@ -16,11 +16,18 @@
   }
 
   .bar {
-    background-color: #5cb85c;
     flex: 1;
     height: 5px;
     margin-left: 0.5em;
     border-radius: 2px;
+  }
+
+  .active {
+    background-color: #5cb85c;
+  }
+
+  .disabled {
+    background-color: #e13137;
   }
 
   form {
