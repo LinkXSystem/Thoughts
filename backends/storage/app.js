@@ -34,7 +34,7 @@ app.use(
 );
 
 // app.use('/api/v1/storage', account);
-app.use('/api/v1/cloud', seven);
+app.use('/cloud/v1', seven);
 
 app.use((req, res, next) => {
   next(utils.error(404, 'verify', 'server system rejected the reaction'));

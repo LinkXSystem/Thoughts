@@ -60,6 +60,7 @@ router.post('/signup', async (req, res, next) => {
 
     const data = await User.create({
       identify: uuid(),
+      portrait: '',
       username: username,
       email: email,
       password: confuse.encrypt(password),
@@ -83,6 +84,10 @@ router.post('/fingerprint', async (req, res, next) => {
     const data = await User.findOne({
       fingerprint,
     });
+
+    console.log('====================================');
+    console.log(fingerprint);
+    console.log('====================================');
 
     if (!data) {
       return res.json({
