@@ -4,12 +4,15 @@ echo '========================================================'
 echo 'thoughts & jenkins'
 echo '========================================================'
 
+npm config set registry https://registry.npm.taobao.org
 
-cd deplay/frontend
+cd frontend
 
-docker images
+npm install -g @angular/cli
 
-docker build -t thoughts-frontend-v2:latest .
+npm install
+
+npm start
 
 echo '========================================================'
 echo 'thoughts & jenkins'
