@@ -4,13 +4,12 @@ echo '========================================================'
 echo 'thoughts & jenkins'
 echo '========================================================'
 
-ls -l
 
-cd frontend
+cd deplay/frontend
 
-ls -l
+docker images
 
-npm install
+docker build -t thoughts-frontend-v2:latest .
 
 echo '========================================================'
 echo 'thoughts & jenkins'

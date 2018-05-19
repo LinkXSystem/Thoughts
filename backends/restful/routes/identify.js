@@ -63,6 +63,9 @@ router.get('/account', async (req, res, next) => {
   }
 });
 
+/**
+ * @description 获取文章详情
+ */
 router.get('/article/:identify', async (req, res, next) => {
   try {
     const { identify } = req.params;
