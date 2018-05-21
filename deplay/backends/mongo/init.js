@@ -7,7 +7,7 @@ admin.createUser({
   pwd: 'thoughts',
   roles: [
     {
-      role: 'userAdminAnyDatabase',
+      role: 'dbAdminAnyDatabase',
       db: 'admin',
     },
   ],
