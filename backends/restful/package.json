@@ -8,13 +8,16 @@
     "start": "node bin/www",
     "dev": "node-dev bin/www"
   },
-  "keywords": ["nodejs"],
+  "keywords": [
+    "nodejs"
+  ],
   "author": "linksystem",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "ioredis": "^3.2.2",
     "lodash": "^4.17.5",
     "log4js": "^2.5.3",
     "mongoose": "^5.0.11",
