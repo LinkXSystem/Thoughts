@@ -8,4 +8,6 @@ COPY user.js init.js build.sh /
 
 RUN chmod +x build.sh
 
+EXPOSE 27017
+
 ENTRYPOINT [ "./build.sh" ]
